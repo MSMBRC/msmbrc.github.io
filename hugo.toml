@@ -1,0 +1,22 @@
+baseURL = "https://msmbrc.github.io/"
+languageCode = "it-IT"
+title = "MSMBRC"
+theme = ""
+
+# Paginazione: 7 post per pagina
+paginate = 7
+
+[params]
+  author      = "MSMBRC"
+  handle      = "Milano"
+  bio         = "Qui per parlare di tecnologia, arte, videogiochi, film e cose belle.<br>Designer UX e UI dalle 9 alle 18."
+  location    = "Milano, IT"
+  twitter     = "https://x.com/MSMBRC"
+  email       = "massimiliano.barci@outlook.com"
+  copyright   = "© 2026 MSMBRC"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Permette HTML raw nei file .md (necessario per i shortcode inline)
+      unsafe = true

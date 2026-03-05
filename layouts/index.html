@@ -1,0 +1,55 @@
+{{ define "main" }}
+
+<div class="post-feed">
+
+  {{ range .Paginator.Pages }}
+  <article class="post">
+    <div class="post-avatar"></div>
+    <div class="post-body">
+
+      <div class="post-header">
+        <div class="post-header-left">
+          <span class="post-author">{{ $.Site.Title }} <span class="post-author-badge">✦</span></span>
+          <span class="post-handle">{{ $.Site.Params.handle }}</span>
+          <span class="post-dot">·</span>
+          <span class="post-date">{{ .Date.Format "2 Jan 2006" }}</span>
+        </div>
+      </div>
+
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+
+    </div>
+  </article>
+  {{ end }}
+
+</div>
+
+<!-- Paginazione -->
+{{ $paginator := .Paginator }}
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="pagination">
+  {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="prev-next">← Precedenti</a>
+  {{ else }}
+    <span class="prev-next disabled">← Precedenti</span>
+  {{ end }}
+
+  {{ range $paginator.Pagers }}
+    {{ if eq . $paginator }}
+      <span class="current">{{ .PageNumber }}</span>
+    {{ else }}
+      <a href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{ end }}
+  {{ end }}
+
+  {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="prev-next">Successivi →</a>
+  {{ else }}
+    <span class="prev-next disabled">Successivi →</span>
+  {{ end }}
+</nav>
+{{ end }}
+
+{{ end }}

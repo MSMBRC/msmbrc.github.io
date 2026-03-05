@@ -1,0 +1,27 @@
+{{/*
+  Shortcode: post-link
+  Uso in Markdown:
+    {{< post-link url="https://esempio.com" title="Titolo del link" image="/assets/img/foto.jpg" >}}
+
+  Parametri:
+    url    (obbligatorio) — URL esterno del link
+    title  (obbligatorio) — Titolo mostrato nella card
+    image  (opzionale)   — Percorso immagine (es. /assets/img/cover.jpg)
+                           Se omesso viene mostrato un placeholder
+*/}}
+
+{{ $url   := .Get "url" }}
+{{ $title := .Get "title" }}
+{{ $image := .Get "image" }}
+
+<a class="post-link" href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+  {{ if $image }}
+    <img class="post-link-image" src="{{ $image }}" alt="{{ $title }}" />
+  {{ else }}
+    <div class="post-link-image-placeholder">🔗</div>
+  {{ end }}
+  <div class="post-link-body">
+    <div class="post-link-title">{{ $title }}</div>
+    <div class="post-link-url">{{ $url | replaceRE "^https?://" "" }}</div>
+  </div>
+</a>
