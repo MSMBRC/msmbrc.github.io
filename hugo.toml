@@ -1,10 +1,8 @@
 baseURL = "https://msmbrc.github.io/"
 languageCode = "it-IT"
 title = "MSMBRC"
-theme = ""
 
 # Paginazione: 7 post per pagina
-paginate = 7
 
 [params]
   author      = "MSMBRC"
@@ -20,3 +18,5 @@ paginate = 7
     [markup.goldmark.renderer]
       # Permette HTML raw nei file .md (necessario per i shortcode inline)
       unsafe = true
+[pagination]
+  pagerSize = 7
