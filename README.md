@@ -231,3 +231,4 @@ Su GitHub → tab **Actions** → clicca sul workflow fallito → leggi i log.
 
 **Posso avere post senza immagine nel post-link?**  
 Sì, ometti semplicemente il parametro `image`. Apparirà un'icona 🔗 al posto dell'immagine.
+# msmbrc.github.io
