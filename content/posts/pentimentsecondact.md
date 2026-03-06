@@ -1,5 +1,5 @@
 ---
-title: "Graziano Visconti"
+title: "Pentiment, second act"
 date: 2026-02-22
 draft: false
 ---
