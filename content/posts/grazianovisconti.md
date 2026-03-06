@@ -4,7 +4,7 @@ date: 2026-02-23
 draft: false
 ---
 
-Oggi ho visitato il magico Grazzano Visconti. Questo villaggio fiabesco sembra riportarti indietro nel tempo, nell'era medievale.
+Grazzano Visconti.
 
 ![](/assets/img/graziano1.jpg)
 
