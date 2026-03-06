@@ -6,8 +6,6 @@ draft: false
 
 Questo è il mio primo post in un blog realizzato con <a href="https://gohugo.io/" target="_blank">Hugo!</a>
 
-Sono veramente gasato, anche perché adoro la velocità di caricamento, il fatto che non ci sia un database maledetto (capito wordpress?) e soprattutto che ho fatto tutto da solo in compagnia di.. Claude.
+Sono veramente gasato perché mi da un senso di libertà e mi fa tornare indietro a quando smanettavo con il codice. Inoltre è figo che c'è un sistema di blogging relativamente facile da pubblicare senza però usare un database.
 
-Claude è stato fondamentale per me. Sono uno UX UI Designer, ho un passato come web designer e conosco html e css come le mie tasche e qualcosina di javascript, lavoro tutti i giorni con dev front end.. e ok, ma quel poco che so non sarebbe bastato a montare un sito con Hugo, su Github, in così poco tempo.
-
-Per ora felicissimo
+Claude.ai è stato fondamentale per realizzare tutto questo in brevissimo tempo (meno di 24 ore) partendo da zero conoscenze di Hugo, senza mai aver usato GitHub.
