@@ -3,7 +3,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:            #0e0e0e;
+  --bg:            #171615; /*0e0e0e*/
   --bg-elevated:   #171717;
   --bg-hover:      #1c1c1c;
   --border:        #222222;
@@ -115,6 +115,7 @@ a { color: inherit; text-decoration: none; }
 .profile-header { width: 100%; }
 
 .profile-banner {
+  display: none;
   width: 100%;
   height: 120px;
   background: linear-gradient(135deg, #111 0%, #1a1f1a 40%, #0d1a14 100%);
