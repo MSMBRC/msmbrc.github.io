@@ -6,10 +6,10 @@ title = "MSMBRC"
 
 [params]
   author      = "MSMBRC"
-  handle      = "Blog"
-  bio         = ""
-  location    = "Milano, IT"
-  twitter     = "https://x.com/MSMBRC"
+  handle      = ""
+  bio         = "Tecnologia, arte, videogame, film libri e cose a caso."
+  location    = ""
+  twitter     = ""
   email       = ""
   copyright   = "© 2026 MSMBRC"
 
