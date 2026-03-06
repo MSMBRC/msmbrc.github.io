@@ -1,6 +1,6 @@
 ---
 title: "Sottopasso Monza"
-date: 2026-01-3
+date: 2026-01-03
 draft: false
 ---
 
