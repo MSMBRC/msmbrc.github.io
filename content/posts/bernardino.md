@@ -7,6 +7,4 @@ draft: false
 San Bernardino alle Ossa, Milano.
 
 ![ ](/assets/img/bernardino_1.jpg)
-![ ](/assets/img/bernardino_2.jpg)
-![ ](/assets/img/bernardino_4.jpg)
 
