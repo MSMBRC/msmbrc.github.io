@@ -1,7 +1,8 @@
 <!-- ── PROFILE HEADER ──────────────────────────────────────── -->
 <div class="profile-header">
 
-  <div class="profile-banner"></div>
+  <div class="profile-banner">
+  </div>
 
   <div class="profile-meta-row">
     <div class="profile-avatar"></div>
@@ -39,7 +40,7 @@
 
   <!-- Tabs -->
   <div class="profile-tabs">
-    <a href="/" class="profile-tab{{ if .IsHome }} active{{ end }}">Post</a>
+    <a href="/" class="profile-tab{{ if .IsHome }} active{{ end }}">Appunti</a>
     <a href="/videogame/" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}">Videogame</a>
     <a href="/tags/corsette/" class="profile-tab{{ if eq .RelPermalink "/tags/corsette/" }} active{{ end }}">Corsette</a>
   </div>

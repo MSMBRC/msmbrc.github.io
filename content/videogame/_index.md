@@ -7,12 +7,9 @@ layout: "videogame"
 # image: percorso immagine in /static/assets/img/ (opzionale)
 # Se non metti image, appare un placeholder con l'emoji 🎮
 in_corso:
-  - titolo: "Elden Ring"
+  - titolo: "Pentiment"
     anno: "In corso"
-    image: ""
-  - titolo: "Balatro"
-    anno: "In corso"
-    image: ""
+    image: "/assets/img/pentiment-copertina.jpg"
 
 # ── Giochi completati ────────────────────────────────────────────
 # In ordine di completamento (il più recente per primo)

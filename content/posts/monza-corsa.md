@@ -4,10 +4,7 @@ date: 2025-12-07
 draft: false
 tags: ["corsette"]
 ---
-
-Prima uscita dell'anno al Parco di Monza. Freddo, qualche nuvola, ma il parco era quasi deserto — il momento migliore per correrci.
-
-Giro largo che passa per il circuito, poi giù verso i giardini della Villa Reale e risalita lungo il Lambro. Le gambe giravano bene fino al km 7, poi si è fatto sentire.
+Corsetta di allenamento.
 
 {{< corsa
   titolo="Monza Corsa"
