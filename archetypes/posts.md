@@ -2,14 +2,19 @@
 title: ""
 date: {{ .Date }}
 draft: false
+tags: []
+# Esempi di tag: ["corsette"] — lascia [] per post generici
 ---
 
-Testo del post qui. Puoi scrivere paragrafi normali in Markdown.
+Testo del post qui.
 
-Secondo paragrafo. Puoi mettere **grassetto**, *corsivo*, e [link classici](https://esempio.com).
+Secondo paragrafo. Puoi usare **grassetto**, *corsivo*, e [link classici](https://esempio.com).
 
 <!-- Immagine standard Markdown -->
-<!-- ![Descrizione immagine](/assets/img/nome-file.jpg) -->
+<!-- ![Descrizione](/assets/img/nome-file.jpg) -->
 
-<!-- Link card visivo (shortcode) -->
-<!-- {{</* post-link url="https://esempio.com" title="Titolo del link" image="/assets/img/cover.jpg" */>}} -->
+<!-- Link card visivo -->
+<!-- {{</* post-link url="https://esempio.com" title="Titolo" image="/assets/img/cover.jpg" */>}} -->
+
+<!-- Widget corsa (manda prima il GPX per ottenere i punti SVG) -->
+<!-- {{</* corsa titolo="Nome corsa" data="7 mar 2026" distanza="9.34 km" tempo="1:05:08" passo="6:59 /km" punti="..." */>}} -->

@@ -1,0 +1,58 @@
+{{ define "main" }}
+
+<!-- ── Sto giocando ──────────────────────────────────────────── -->
+{{ with .Params.in_corso }}
+<div class="games-section">
+  <div class="games-section-header">
+    <span class="games-section-title">Sto giocando</span>
+    <span class="games-section-count">{{ len . }} {{ if eq (len .) 1 }}gioco{{ else }}giochi{{ end }}</span>
+  </div>
+  <div class="games-grid">
+    {{ range . }}
+    <div class="game-card">
+      <div class="game-cover">
+        {{ if .image }}
+          <img src="{{ .image }}" alt="{{ .titolo }}" />
+        {{ else }}
+          <div class="game-cover-placeholder">🎮</div>
+        {{ end }}
+        <span class="game-badge">In corso</span>
+      </div>
+      <div class="game-info">
+        <div class="game-title">{{ .titolo }}</div>
+        <div class="game-meta">In corso</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+<!-- ── Completati ────────────────────────────────────────────── -->
+{{ with .Params.completati }}
+<div class="games-section">
+  <div class="games-section-header">
+    <span class="games-section-title">Completati</span>
+    <span class="games-section-count">{{ len . }} giochi</span>
+  </div>
+  <div class="games-grid">
+    {{ range . }}
+    <div class="game-card">
+      <div class="game-cover">
+        {{ if .image }}
+          <img src="{{ .image }}" alt="{{ .titolo }}" />
+        {{ else }}
+          <div class="game-cover-placeholder">🎮</div>
+        {{ end }}
+      </div>
+      <div class="game-info">
+        <div class="game-title">{{ .titolo }}</div>
+        <div class="game-meta">{{ .anno }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,55 @@
+{{/*
+  Shortcode: corsa
+  Uso nel post .md:
+
+  {{< corsa
+    titolo="Monza Corsa"
+    data="7 dic 2025"
+    distanza="9.34 km"
+    tempo="1:05:08"
+    passo="6:59 /km"
+    punti="x1,y1 x2,y2 ..."
+  >}}
+
+  Il parametro "punti" è la stringa SVG che ottieni mandando il GPX.
+  viewBox è fisso 600x380.
+*/}}
+
+{{ $titolo   := .Get "titolo" }}
+{{ $data     := .Get "data" }}
+{{ $distanza := .Get "distanza" }}
+{{ $tempo    := .Get "tempo" }}
+{{ $passo    := .Get "passo" }}
+{{ $punti    := .Get "punti" }}
+
+<div class="run-widget">
+  <div class="run-widget-header">
+    <span class="run-widget-title">{{ $titolo }}</span>
+    <span class="run-widget-date">{{ $data }}</span>
+  </div>
+  <div class="run-stats">
+    <div class="run-stat">
+      <span class="run-stat-value">{{ $distanza }}</span>
+      <span class="run-stat-label">Distanza</span>
+    </div>
+    <div class="run-stat">
+      <span class="run-stat-value">{{ $tempo }}</span>
+      <span class="run-stat-label">Tempo</span>
+    </div>
+    <div class="run-stat">
+      <span class="run-stat-value">{{ $passo }}</span>
+      <span class="run-stat-label">Passo medio</span>
+    </div>
+  </div>
+  <div class="run-map">
+    <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <polyline
+        points="{{ $punti }}"
+        stroke="#3ecf8e"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+</div>

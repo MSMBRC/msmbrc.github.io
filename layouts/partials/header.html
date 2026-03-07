@@ -39,8 +39,9 @@
 
   <!-- Tabs -->
   <div class="profile-tabs">
-    <div class="profile-tab active">Post</div>
-    <div class="profile-tab">Videogame</div>
+    <a href="/" class="profile-tab{{ if .IsHome }} active{{ end }}">Post</a>
+    <a href="/videogame/" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}">Videogame</a>
+    <a href="/tags/corsette/" class="profile-tab{{ if eq .RelPermalink "/tags/corsette/" }} active{{ end }}">Corsette</a>
   </div>
 
 </div>
