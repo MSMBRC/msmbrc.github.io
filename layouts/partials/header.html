@@ -40,9 +40,11 @@
 
   <!-- Tabs -->
   <div class="profile-tabs">
-    <a href="/" class="profile-tab{{ if .IsHome }} active{{ end }}">Appunti</a>
-    <a href="/videogame/" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}">Videogame</a>
-    <a href="/tags/corsette/" class="profile-tab{{ if eq .RelPermalink "/tags/corsette/" }} active{{ end }}">Corsette</a>
+    <a href="/" data-text="Appunti" class="profile-tab{{ if .IsHome }} active{{ end }}">Post</a>
+    <a href="/libri/" data-text="Libri" class="profile-tab{{ if eq .RelPermalink "/libri/" }} active{{ end }}">Libri</a>
+    <a href="/videogame/" data-text="Videogame" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}">Videogame</a>
+    <a href="/tags/corsette/" data-text="Corsette" class="profile-tab{{ if eq .RelPermalink "/tags/corsette/" }} active{{ end }}">#Corsette</a>
+    <a href="/tags/note-di-lavoro/" data-text="Note di lavoro" class="profile-tab{{ if eq .RelPermalink "/tags/note-di-lavoro/" }} active{{ end }}">#NoteDiLavoro</a>
   </div>
 
 </div>

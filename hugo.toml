@@ -6,11 +6,11 @@ title = "MSMBRC"
 
 [params]
   author      = "MSMBRC"
-  handle      = ""
-  bio         = "Tecnologia, arte, videogame, film libri e cose a caso."
-  location    = ""
-  twitter     = ""
-  email       = ""
+  handle      = "handle"
+  bio         = "Social personale con unico utente. Costruito grazie a Claude.ai.<br>Vivo a Milano, dalle nove alle 18 sono UX e UI Designer e nel resto del tempo faccio cose."
+  location    = "Milano"
+  twitter     = "asd"
+  email       = "massimiliano.barci@proton.me"
   copyright   = "© 2026 MSMBRC"
 
 [markup]

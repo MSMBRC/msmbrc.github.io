@@ -1,0 +1,73 @@
+{{ define "main" }}
+
+{{ with .Params.in_lettura }}
+<div class="books-section">
+  <div class="books-section-header">
+    <span class="books-section-title">In lettura</span>
+    <span class="books-section-count">{{ len . }} {{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}</span>
+  </div>
+  <div class="book-list">
+    {{ range . }}
+    <div class="book-item">
+      <span class="book-badge">In lettura</span>
+      <div class="book-cover">
+        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder">📖</div>{{ end }}
+      </div>
+      <div class="book-info">
+        <div class="book-title">{{ .titolo }}</div>
+        <div class="book-author">{{ .autore }}</div>
+        <div class="book-year">{{ .anno }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ with .Params.prossimi }}
+<div class="books-section">
+  <div class="books-section-header">
+    <span class="books-section-title">Prossimi</span>
+    <span class="books-section-count">{{ len . }} {{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}</span>
+  </div>
+  <div class="book-list">
+    {{ range . }}
+    <div class="book-item">
+      <div class="book-cover">
+        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder">📖</div>{{ end }}
+      </div>
+      <div class="book-info">
+        <div class="book-title">{{ .titolo }}</div>
+        <div class="book-author">{{ .autore }}</div>
+        <div class="book-year">{{ .anno }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ with .Params.letti }}
+<div class="books-section">
+  <div class="books-section-header">
+    <span class="books-section-title">Letti</span>
+    <span class="books-section-count">{{ len . }} {{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}</span>
+  </div>
+  <div class="book-list">
+    {{ range . }}
+    <div class="book-item">
+      <div class="book-cover">
+        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder">📖</div>{{ end }}
+      </div>
+      <div class="book-info">
+        <div class="book-title">{{ .titolo }}</div>
+        <div class="book-author">{{ .autore }}</div>
+        <div class="book-year">{{ .anno }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ end }}
