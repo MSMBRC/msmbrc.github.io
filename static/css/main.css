@@ -4,7 +4,7 @@
 
 :root {
   --bg:            #0e0e0e; /*171615*/
-  --bg-elevated:   #0e0e0e; /*151203*/ /*171717*/
+  --bg-elevated:   #171717; /*151203*/ /*171717*/
   --bg-hover:      #1c1c1c;
   --border:        #222222;
   --border-subtle: #1a1a1a;
@@ -608,10 +608,11 @@ a { color: inherit; text-decoration: none; }
   margin: 8px 0 16px;
 }
 .run-widget-header {
-  padding: 14px 18px 0;
+  padding: 14px 18px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
 }
 .run-widget-title {
   font-size: 0.75rem;
@@ -625,48 +626,136 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-tertiary);
   font-family: var(--font-mono);
 }
+
+/* Griglia widgettini stat */
 .run-stats {
-  display: flex;
-  padding: 12px 18px 14px;
-  border-bottom: 1px solid var(--border-subtle);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 12px 14px;
 }
 .run-stat {
-  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
-.run-stat + .run-stat {
-  border-left: 1px solid var(--border-subtle);
-  padding-left: 18px;
+.run-stat-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+  margin-bottom: 2px;
 }
 .run-stat-value {
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-accent);
-  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
   font-family: var(--font-mono);
+  line-height: 1;
+}
+.run-stat-unit {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  margin-left: 1px;
 }
 .run-stat-label {
-  font-size: 0.6875rem;
+  font-size: 0.6rem;
   color: var(--text-tertiary);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   font-weight: 500;
 }
+
+/* Mappa percorso */
 .run-map {
-  padding: 0 18px 18px;
-  margin-top: 14px;
+  padding: 0 14px 14px;
 }
 .run-map svg {
   width: 100%;
   height: auto;
   display: block;
+  max-height: 300px;
+  margin:0 auto;
 }
 .run-map svg polyline {
   stroke: var(--accent);
 }
 
+/* Grafico HR — rosso */
+.run-hr-chart {
+  padding: 0 14px 14px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 12px;
+}
+.run-hr-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.run-hr-max {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-tertiary);
+}
+.run-hr-svg-wrap {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg);
+  padding: 6px 0;
+}
+.run-hr-svg {
+  width: 100%;
+  height: 64px;
+  display: block;
+}
+
+@media (max-width: 400px) {
+  .run-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ─── Nota block (note di lavoro) ───────────────────────────── */
+.nota-block {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 16px 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.nota-risultato { border-left-color: var(--accent); }
+.nota-processo  { border-left-color: #888; }
+.nota-strumento { border-left-color: #555; }
+.nota-icon {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 14px;
+  text-align: center;
+}
+.nota-risultato .nota-icon { color: var(--accent); }
+.nota-content p { margin: 0; }
+.nota-content p + p { margin-top: 6px; }
 
 /* ─── Libri Page ─────────────────────────────────────────────── */
 .books-section {

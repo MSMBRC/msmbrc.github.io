@@ -1,55 +1,150 @@
 {{/*
   Shortcode: corsa
-  Uso nel post .md:
-
-  {{< corsa
-    titolo="Monza Corsa"
-    data="7 dic 2025"
-    distanza="9.34 km"
-    tempo="1:05:08"
-    passo="6:59 /km"
-    punti="x1,y1 x2,y2 ..."
-  >}}
-
-  Il parametro "punti" è la stringa SVG che ottieni mandando il GPX.
-  viewBox è fisso 600x380.
+  Parametri:
+    titolo      — nome della corsa
+    data        — es. "8 mar 2026"
+    distanza    — es. "5.30 km"
+    tempo       — es. "34:42"
+    passo       — es. "6:32 /km"
+    hr_avg      — battito medio es. "178"
+    hr_max      — battito massimo es. "191"
+    cal         — calorie es. "334"
+    punti       — stringa punti SVG del percorso
+    viewbox     — es. "0 0 320 550" (opzionale, default 320 550)
+    hr_vals     — valori HR separati da virgola
+    hr_dists    — distanze km corrispondenti separate da virgola
 */}}
-
 {{ $titolo   := .Get "titolo" }}
 {{ $data     := .Get "data" }}
 {{ $distanza := .Get "distanza" }}
 {{ $tempo    := .Get "tempo" }}
 {{ $passo    := .Get "passo" }}
+{{ $hr_avg   := .Get "hr_avg" }}
+{{ $hr_max   := .Get "hr_max" }}
+{{ $cal      := .Get "cal" }}
 {{ $punti    := .Get "punti" }}
+{{ $viewbox  := .Get "viewbox" | default "0 0 320 550" }}
+{{ $hr_vals  := .Get "hr_vals" }}
+{{ $hr_dists := .Get "hr_dists" }}
+{{ $uid      := $titolo | urlize }}
 
 <div class="run-widget">
+
   <div class="run-widget-header">
     <span class="run-widget-title">{{ $titolo }}</span>
     <span class="run-widget-date">{{ $data }}</span>
   </div>
+
   <div class="run-stats">
+    {{ if $distanza }}
     <div class="run-stat">
+      <span class="run-stat-icon">📍</span>
       <span class="run-stat-value">{{ $distanza }}</span>
       <span class="run-stat-label">Distanza</span>
     </div>
+    {{ end }}
+    {{ if $tempo }}
     <div class="run-stat">
+      <span class="run-stat-icon">⏱</span>
       <span class="run-stat-value">{{ $tempo }}</span>
       <span class="run-stat-label">Tempo</span>
     </div>
+    {{ end }}
+    {{ if $passo }}
     <div class="run-stat">
+      <span class="run-stat-icon">👟</span>
       <span class="run-stat-value">{{ $passo }}</span>
       <span class="run-stat-label">Passo medio</span>
     </div>
+    {{ end }}
+    {{ if $hr_avg }}
+    <div class="run-stat">
+      <span class="run-stat-icon">❤️</span>
+      <span class="run-stat-value">{{ $hr_avg }} <span class="run-stat-unit">bpm</span></span>
+      <span class="run-stat-label">Battito medio</span>
+    </div>
+    {{ end }}
+    {{ if $hr_max }}
+    <div class="run-stat">
+      <span class="run-stat-icon">🔺</span>
+      <span class="run-stat-value">{{ $hr_max }} <span class="run-stat-unit">bpm</span></span>
+      <span class="run-stat-label">Battito max</span>
+    </div>
+    {{ end }}
+    {{ if $cal }}
+    <div class="run-stat">
+      <span class="run-stat-icon">🔥</span>
+      <span class="run-stat-value">{{ $cal }}</span>
+      <span class="run-stat-label">Calorie</span>
+    </div>
+    {{ end }}
   </div>
+
+  {{ if $punti }}
   <div class="run-map">
-    <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
       <polyline
         points="{{ $punti }}"
         stroke="#3ecf8e"
-        stroke-width="2.5"
+        stroke-width="3"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
     </svg>
   </div>
+  {{ end }}
+
+  {{ if and $hr_vals $hr_dists }}
+  <div class="run-hr-chart">
+    <div class="run-hr-label">
+      <span>Battito cardiaco</span>
+      {{ if $hr_max }}<span class="run-hr-max">max {{ $hr_max }} bpm</span>{{ end }}
+    </div>
+    <div class="run-hr-svg-wrap">
+      <svg class="run-hr-svg" id="hr-svg-{{ $uid }}" viewBox="0 0 600 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hr-grad-{{ $uid }}" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path id="hr-fill-{{ $uid }}" fill="url(#hr-grad-{{ $uid }})"/>
+        <polyline id="hr-line-{{ $uid }}"
+          data-vals="{{ $hr_vals }}"
+          data-dists="{{ $hr_dists }}"
+          fill="none"
+          stroke="#ef4444"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+  </div>
+  <script>
+  (function() {
+    var line = document.getElementById("hr-line-{{ $uid }}");
+    var fill = document.getElementById("hr-fill-{{ $uid }}");
+    if (!line) return;
+    var vals  = line.getAttribute("data-vals").split(",").map(Number);
+    var dists = line.getAttribute("data-dists").split(",").map(Number);
+    var W = 600, H = 64, padX = 4, padY = 6;
+    var minV = Math.min.apply(null, vals) - 8;
+    var maxV = Math.max.apply(null, vals) + 8;
+    var maxD = Math.max.apply(null, dists);
+    var pts = vals.map(function(v, i) {
+      var x = (dists[i] / maxD) * (W - padX*2) + padX;
+      var y = (1 - (v - minV) / (maxV - minV)) * (H - padY*2) + padY;
+      return [parseFloat(x.toFixed(1)), parseFloat(y.toFixed(1))];
+    });
+    line.setAttribute("points", pts.map(function(p){ return p[0]+","+p[1]; }).join(" "));
+    // Area fill path
+    var d = "M " + pts[0][0] + "," + H;
+    pts.forEach(function(p){ d += " L " + p[0] + "," + p[1]; });
+    d += " L " + pts[pts.length-1][0] + "," + H + " Z";
+    fill.setAttribute("d", d);
+  })();
+  </script>
+  {{ end }}
+
 </div>

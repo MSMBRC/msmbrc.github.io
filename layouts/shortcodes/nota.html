@@ -1,0 +1,20 @@
+{{/*
+  Shortcode: nota
+  Un blocco callout in stile "app di note" per evidenziare passaggi chiave.
+  Parametri:
+    tipo  — "processo" | "risultato" | "strumento" (opzionale, default generico)
+    testo — il contenuto della nota (opzionale, oppure usa il contenuto inner)
+  Uso:
+    {{< nota tipo="risultato" >}}Testo qui{{< /nota >}}
+*/}}
+{{ $tipo := .Get "tipo" | default "nota" }}
+
+{{ $icona := "·" }}
+{{ if eq $tipo "processo" }}{{ $icona = "⟳" }}{{ end }}
+{{ if eq $tipo "risultato" }}{{ $icona = "✓" }}{{ end }}
+{{ if eq $tipo "strumento" }}{{ $icona = "⚙" }}{{ end }}
+
+<div class="nota-block nota-{{ $tipo }}">
+  <span class="nota-icon">{{ $icona }}</span>
+  <div class="nota-content">{{ .Inner | markdownify }}</div>
+</div>
