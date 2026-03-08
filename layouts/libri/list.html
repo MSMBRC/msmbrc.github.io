@@ -11,12 +11,12 @@
     <div class="book-item">
       <span class="book-badge">In lettura</span>
       <div class="book-cover">
-        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder">📖</div>{{ end }}
+        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder"></div>{{ end }}
       </div>
       <div class="book-info">
         <div class="book-title">{{ .titolo }}</div>
         <div class="book-author">{{ .autore }}</div>
-        <div class="book-year">{{ .anno }}</div>
+        <div class="book-year">Letto nel {{ .anno }}</div>
       </div>
     </div>
     {{ end }}

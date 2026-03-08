@@ -4,10 +4,10 @@ layout: "libri"
 
 # ── In lettura ───────────────────────────────────────────────────
 in_lettura:
-  - titolo: "Il nome della rosa"
-    autore: "Umberto Eco"
-    anno: "1980"
-    image: ""
+  - titolo: "La Torre Nera VII - La Torre Nera"
+    autore: "Stephen King"
+    anno: "2026"
+    image: "/assets/img/libro_torrenera7.webp"
 
 # ── Prossimi ─────────────────────────────────────────────────────
 prossimi:
