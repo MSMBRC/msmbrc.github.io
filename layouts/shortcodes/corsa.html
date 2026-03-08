@@ -27,6 +27,7 @@
 {{ $hr_vals  := .Get "hr_vals" }}
 {{ $hr_dists := .Get "hr_dists" }}
 {{ $uid      := $titolo | urlize }}
+{{ $fotocorsa    := .Get "fotocorsa" }}
 
 <div class="run-widget">
 
@@ -79,22 +80,29 @@
     </div>
     {{ end }}
   </div>
+  <div class="booh">
+  
+    {{ if $punti }}
+    <div class="run-map">
+      <svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <polyline
+          points="{{ $punti }}"
+          stroke="#3ecf8e"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    {{ end }}
 
-  {{ if $punti }}
-  <div class="run-map">
-    <svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <polyline
-        points="{{ $punti }}"
-        stroke="#3ecf8e"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  </div>
-  {{ end }}
+    <div class="run-widget-img">
+      <img class="run-image" src="{{ $fotocorsa }}"/>
+    </div>
 
-  {{ if and $hr_vals $hr_dists }}
+</div>
+
+  <!--{{ if and $hr_vals $hr_dists }}
   <div class="run-hr-chart">
     <div class="run-hr-label">
       <span>Battito cardiaco</span>
@@ -145,6 +153,6 @@
     fill.setAttribute("d", d);
   })();
   </script>
-  {{ end }}
+  {{ end }}-->
 
 </div>
