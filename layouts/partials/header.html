@@ -23,12 +23,6 @@
         {{ . }}
       </span>
       {{ end }}
-      <!--{{ with .Site.Params.twitter }}
-      <span class="profile-detail-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-        <a href="{{ . }}" target="_blank" rel="noopener">@MSMBRC</a>
-      </span>
-      {{ end }}-->
       {{ with .Site.Params.email }}
       <span class="profile-detail-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -43,7 +37,6 @@
     <a href="/" data-text="Appunti" class="profile-tab{{ if .IsHome }} active{{ end }}">Post</a>
     <a href="/libri/" data-text="Libri" class="profile-tab{{ if eq .RelPermalink "/libri/" }} active{{ end }}">Libri</a>
     <a href="/videogame/" data-text="Videogame" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}">Videogame</a>
-    <a href="/tags/corsette/" data-text="Corsette" class="profile-tab{{ if eq .RelPermalink "/tags/corsette/" }} active{{ end }}">#Corsette</a>
     <a href="/tags/note-di-lavoro/" data-text="Note di lavoro" class="profile-tab{{ if eq .RelPermalink "/tags/note-di-lavoro/" }} active{{ end }}">#NoteDiLavoro</a>
   </div>
 

@@ -6,8 +6,8 @@ title = "MSMBRC"
 
 [params]
   author      = "MSMBRC"
-  handle      = "@MSMBRC"
-  bio         = "Social personale con unico utente. Costruito grazie a Claude.ai.<br>Vivo a Milano, dalle nove alle 18 sono UX e UI Designer e nel resto del tempo faccio cose."
+  handle      = ""
+  bio         = "Vivo a Milano. Gioco ai videogame, talvolta leggo e corro ma soprattutto prendo appunti. Dalle nove alle diciotto sono UX e UI Designer."
   location    = "Milano"
   twitter     = "asd"
   email       = "massimiliano.barci@proton.me"
