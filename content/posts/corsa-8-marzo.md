@@ -1,11 +1,11 @@
 ---
-title: "Corsa mattutina"
+title: "5k Run for Life 2026"
 date: 2026-03-08
 draft: false
 tags: ["corsette"]
 ---
 
-5k Run for Life 2025 | Autodromo di Monza
+5k Run for Life 2026 | Autodromo di Monza
 
 {{< corsa
   titolo="Corsa mattutina"
