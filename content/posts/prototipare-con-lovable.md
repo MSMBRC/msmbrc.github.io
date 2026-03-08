@@ -4,14 +4,16 @@ date: 2026-01-03
 draft: false
 tags: ["note-di-lavoro"]
 ---
+**Prototipare con Lovable.dev**
 
 Ho usato Lovable per costruire un prototipo di web app — uno strumento per la gestione e valutazione dei fornitori. Caricamento documenti, scadenze, valutazioni, dashboard, comunicazioni.
 
 Il flusso di lavoro era semplice e ripetitivo: descrivevo ogni parte dell'applicazione man mano che la struttura si definiva, trasformavo le richieste in prompt ottimizzati per Lovable, verificavo l'output e tornavo in chat per affinare. Questo approccio ha permesso di procedere per iterazioni rapide, correggendo solo ciò che emergeva di volta in volta.
 
-{{< nota tipo="processo" >}}
+**Workflow usato**
+
 Descrivere → generare il prompt → incollare in Lovable → verificare → correggere. Ogni ciclo durava pochi minuti. Senza sprechi, senza riscrivere da zero.
-{{< /nota >}}
+
 
 **Cosa è stato affinato nel tempo**
 
@@ -22,3 +24,9 @@ La visibilità dei menu in base al tipo di utenza — admin vs. fornitore — è
 **Risultato**
 
 Il prototipo è completo e copre tutte le pagine e le interazioni principali. Può essere trasformato nella versione finale usando il design system esistente, senza ripartire da zero.
+
+{{< nota tipo="processo" >}}
+Tool utilizzati:<br>
+<a href="https://lovable.dev" taget="_blank">Lovable</a><br>
+<a href="https://copilot.microsoft.com/" taget="_blank">Copilot</a>
+{{< /nota >}}

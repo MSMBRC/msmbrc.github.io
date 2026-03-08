@@ -14,7 +14,6 @@
 {{ if eq $tipo "risultato" }}{{ $icona = "✓" }}{{ end }}
 {{ if eq $tipo "strumento" }}{{ $icona = "⚙" }}{{ end }}
 
-<div class="nota-block nota-{{ $tipo }}">
-  <span class="nota-icon">{{ $icona }}</span>
+<div class="nota-block">
   <div class="nota-content">{{ .Inner | markdownify }}</div>
 </div>
