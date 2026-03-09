@@ -718,9 +718,13 @@ a { color: inherit; text-decoration: none; }
 .booh {
   display: grid;
   padding:0 14px 6px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);flex-direction: column;
+    gap: 16px;
 }
 
+@media (max-width: 600px) {
+  .booh { display: flex; }
+}
 .run-map {
   padding: 14px;
   align-content: center;
