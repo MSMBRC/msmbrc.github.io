@@ -11,28 +11,19 @@ in_lettura:
 
 # ── Prossimi ─────────────────────────────────────────────────────
 prossimi:
-  - titolo: "Infinite Jest"
-    autore: "David Foster Wallace"
-    anno: "1996"
-    image: ""
-  - titolo: "La strada"
-    autore: "Cormac McCarthy"
-    anno: "2006"
-    image: ""
-
+  - titolo: "Pet Sematary"
+    autore: "Stephen King"
+    anno: "-"
+    image: "/assets/img/libro_petsematary.webp"
 # ── Letti ────────────────────────────────────────────────────────
 # In ordine di lettura — il più recente per primo
 letti:
-  - titolo: "Siddharta"
-    autore: "Hermann Hesse"
-    anno: "1922"
-    image: ""
-  - titolo: "Il processo"
-    autore: "Franz Kafka"
-    anno: "1925"
-    image: ""
-  - titolo: "1984"
-    autore: "George Orwell"
-    anno: "1949"
-    image: ""
+  - titolo: "La Torre Nera VI - La Canzone di Susannah"
+    autore: "Stephen King"
+    anno: "2025"
+    image: "/assets/img/libro_torrenera6.webp"
+  - titolo: "La Torre Nera V - I Lupi del Calla"
+    autore: "Stephen King"
+    anno: "2025"
+    image: "/assets/img/libro_torrenera5.webp"
 ---

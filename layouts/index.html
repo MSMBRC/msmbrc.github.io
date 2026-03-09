@@ -2,7 +2,7 @@
 
 <div class="post-feed">
 
-  {{ range .Paginator.Pages }}
+  {{ range where .Paginator.Pages "Section" "posts" }}
   <article class="post">
     <div class="post-avatar"></div>
     <div class="post-body">

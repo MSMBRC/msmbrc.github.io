@@ -1,0 +1,79 @@
+{{ define "main" }}
+
+<!-- Modale -->
+<div class="note-modal" id="note-modal">
+  <div class="note-modal-backdrop" id="note-modal-backdrop"></div>
+  <div class="note-modal-box">
+    <button class="note-modal-close" id="note-modal-close" aria-label="Chiudi">✕</button>
+    <div class="note-modal-body" id="note-modal-body"></div>
+  </div>
+</div>
+
+<!-- Contenuti nascosti delle note -->
+{{ range .Paginator.Pages }}
+<template id="note-content-{{ .File.UniqueID }}">
+  <div class="note-single-meta">{{ .Date.Format "2 January 2006" }}</div>
+  <h1 class="note-single-title">{{ .Title }}</h1>
+  <div class="notes-body">{{ .Content }}</div>
+</template>
+{{ end }}
+
+<!-- Feed note -->
+<div class="notes-feed">
+  <p style="margin-bottom:16px; color:var(--text-secondary)">Appunti di lavoro, condivisi col mondo.</p>
+  {{ range .Paginator.Pages }}
+  <button class="note-card" data-id="{{ .File.UniqueID }}">
+    <div class="note-card-date">{{ .Date.Format "2 Jan 2006" }}</div>
+    <div class="note-card-title">{{ .Title }}</div>
+    <div class="note-card-preview">{{ .Summary | plainify | truncate 120 }}</div>
+  </button>
+  {{ end }}
+</div>
+
+<!-- Paginazione -->
+{{ $paginator := .Paginator }}
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="pagination">
+  {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="prev-next">← Precedenti</a>{{ else }}<span class="prev-next disabled">← Precedenti</span>{{ end }}
+  {{ range $paginator.Pagers }}{{ if eq . $paginator }}<span class="current">{{ .PageNumber }}</span>{{ else }}<a href="{{ .URL }}">{{ .PageNumber }}</a>{{ end }}{{ end }}
+  {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="prev-next">Successivi →</a>{{ else }}<span class="prev-next disabled">Successivi →</span>{{ end }}
+</nav>
+{{ end }}
+
+<script>
+(function() {
+  var modal    = document.getElementById('note-modal');
+  var backdrop = document.getElementById('note-modal-backdrop');
+  var closeBtn = document.getElementById('note-modal-close');
+  var body     = document.getElementById('note-modal-body');
+
+  function openModal(id) {
+    var tpl = document.getElementById('note-content-' + id);
+    if (!tpl) return;
+    body.innerHTML = '';
+    body.appendChild(tpl.content.cloneNode(true));
+    modal.classList.add('open');
+    body.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.note-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      openModal(card.getAttribute('data-id'));
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
+
+{{ end }}

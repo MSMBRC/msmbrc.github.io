@@ -1,5 +1,17 @@
 {{ define "main" }}
 
+{{ if eq .Section "blocco-appunti" }}
+
+<div class="note-single">
+  <div class="note-single-meta">{{ .Date.Format "2 January 2006" }}</div>
+  <h1 class="note-single-title">{{ .Title }}</h1>
+  <div class="notes-body">
+    {{ .Content }}
+  </div>
+</div>
+
+{{ else }}
+
 <div class="post-feed">
   <article class="post">
     <div class="post-avatar"></div>
@@ -21,5 +33,7 @@
     </div>
   </article>
 </div>
+
+{{ end }}
 
 {{ end }}
