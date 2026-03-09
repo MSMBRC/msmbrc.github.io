@@ -6,7 +6,7 @@
     <span class="books-section-title">In lettura</span>
     <span class="books-section-count">{{ len . }} {{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}</span>
   </div>
-  <div class="book-list">
+  <div class="book-list inlettura">
     {{ range . }}
     <div class="book-item">
       <span class="book-badge">In lettura</span>
@@ -24,7 +24,7 @@
 </div>
 {{ end }}
 
-{{ with .Params.prossimi }}
+<!--{{ with .Params.prossimi }}
 <div class="books-section">
   <div class="books-section-header">
     <span class="books-section-title">Prossimi</span>
@@ -45,7 +45,7 @@
     {{ end }}
   </div>
 </div>
-{{ end }}
+{{ end }}-->
 
 {{ with .Params.letti }}
 <div class="books-section">

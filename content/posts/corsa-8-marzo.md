@@ -8,7 +8,7 @@ tags: ["corsette"]
 5k Run for Life 2026 | Autodromo di Monza
 
 {{< corsa
-  titolo="Corsa"
+  titolo="5k Run for Life 2026 | Autodromo di Monza"
   data="8 mar 2026"
   distanza="5.30 km"
   tempo="34:42"

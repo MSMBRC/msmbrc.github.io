@@ -22,7 +22,7 @@
 <div class="notes-feed">
   <p style="margin-bottom:16px; color:var(--text-secondary)">Appunti di lavoro, condivisi col mondo.</p>
   {{ range .Paginator.Pages }}
-  <button class="note-card" data-id="{{ .File.UniqueID }}">
+  <button class="note-card" data-id="{{ .File.UniqueID }}" data-slug="{{ .File.ContentBaseName }}">
     <div class="note-card-date">{{ .Date.Format "2 Jan 2006" }}</div>
     <div class="note-card-title">{{ .Title }}</div>
     <div class="note-card-preview">{{ .Summary | plainify | truncate 120 }}</div>
@@ -39,7 +39,6 @@
   {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="prev-next">Successivi →</a>{{ else }}<span class="prev-next disabled">Successivi →</span>{{ end }}
 </nav>
 {{ end }}
-
 <script>
 (function() {
   var modal    = document.getElementById('note-modal');
@@ -55,11 +54,17 @@
     modal.classList.add('open');
     body.scrollTop = 0;
     document.body.style.overflow = 'hidden';
+
+    // Aggiorna URL
+    var card = document.querySelector('[data-id="' + id + '"]');
+    var slug = card.getAttribute('data-slug');
+    history.pushState({ noteId: id }, '', '/blocco-appunti/' + slug + '/');
   }
 
   function closeModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    history.pushState(null, '', '/blocco-appunti/');
   }
 
   document.querySelectorAll('.note-card').forEach(function(card) {
@@ -73,6 +78,15 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
+
+  window.addEventListener('popstate', function(e) {
+    if (e.state && e.state.noteId) {
+      openModal(e.state.noteId);
+    } else {
+      closeModal();
+    }
+  });
+
 })();
 </script>
 
