@@ -234,7 +234,7 @@ a { color: inherit; text-decoration: none; }
 .profile-tabs {
   max-width: var(--content-width);
   margin: 16px auto 0;
-  padding: 0px;
+  padding: 0px 8px;
   display: flex;
   border-bottom: 1px solid var(--border);
 }
@@ -947,7 +947,7 @@ a { color: inherit; text-decoration: none; }
   .topbar-inner { padding: 0 16px; }
   .profile-info { padding: 14px 16px 0; }
   .profile-meta-row { padding: 0 16px; }
-  .profile-tabs { padding: 0px; }
+  .profile-tabs { padding: 0px 3px; }
   .post-feed { padding: 0 16px; }
   .footer-inner { flex-direction: column; gap: 12px; }
   .games-grid { grid-template-columns: repeat(3, 1fr); }
