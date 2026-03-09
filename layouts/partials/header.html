@@ -1,13 +1,16 @@
 <!-- ── PROFILE HEADER ──────────────────────────────────────── -->
 <div class="profile-header">
 
-  <!--<div class="profile-banner">
-  </div>-->
+  <div class="profile-banner">
+  </div>
+
+  <div class="profile-info">
+    <div class="profile-avatar"></div>
+  </div>
 
   <div class="profile-meta-row">
-    
     <div class="profile-name">
-      {{ .Site.Title }}
+      <h1>{{ .Site.Title }}</h1>
     </div>
     <!--<div class="profile-avatar"></div>-->
     <div class="profile-actions">
@@ -42,7 +45,7 @@
     <a href="/" data-text="Post" class="profile-tab{{ if .IsHome }} active{{ end }}">Post</a>
     <a href="/libri/" data-text="Libri" class="profile-tab{{ if eq .RelPermalink "/libri/" }} active{{ end }}">Libri</a>
     <a href="/videogame/" data-text="Videogame" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}">Videogame</a>
-    <a href="/blocco-appunti/" data-text="Blocco appunti" class="profile-tab{{ if in .RelPermalink "/blocco-appunti/" }} active{{ end }}">Blocco appunti</a>
+    <a href="/blocco-appunti/" data-text="Blocco appunti" class="profile-tab{{ if in .RelPermalink "/blocco-appunti/" }} active{{ end }}">Appunti</a>
   </div>
 
 </div>

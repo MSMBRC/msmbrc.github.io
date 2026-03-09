@@ -2,6 +2,16 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  h1 {
+    font-size: 2.5rem;
+    /*font-size: clamp(1.75rem, 4vw, 2.5rem);*/
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+    color: var(--text-accent);
+    margin-bottom: 8px;
+  }
+
 :root {
   --bg:            #0e0e0e;
   --bg-elevated:   #171717;
@@ -156,7 +166,7 @@ a { color: inherit; text-decoration: none; }
 .profile-banner {
   display: block;
   width: 100%;
-  height: 40px;
+  height: 180px;
   background: var(--accent);
   position: relative;
   overflow: hidden;
@@ -165,10 +175,10 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
- /* background-image: url('/assets/global/headerone.webp');
+  background-image: url('/assets/global/headerone.webp');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;*/
+  background-position: center center;
 }
 .profile-meta-row {
   max-width: var(--content-width);
@@ -197,7 +207,8 @@ a { color: inherit; text-decoration: none; }
   background-repeat: no-repeat;
   background-position: center center;
   flex-shrink: 0;
-  overflow: hidden;
+  overflow: hidden;    margin-top: -70px;
+    position: relative;
 }
 @media (max-width: 600px) {
   .profile-avatar {
@@ -240,6 +251,7 @@ a { color: inherit; text-decoration: none; }
 }
 .profile-tab {
   font-size: 1rem;
+  width:100%;
   text-align: center;
   font-weight: 500;
   color: var(--text-tertiary);
