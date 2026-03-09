@@ -156,8 +156,8 @@ a { color: inherit; text-decoration: none; }
 .profile-banner {
   display: block;
   width: 100%;
-  height: 220px;
-  background: linear-gradient(135deg, #111 0%, #1a1f1a 40%, #0d1a14 100%);
+  height: 40px;
+  background: var(--accent);
   position: relative;
   overflow: hidden;
 }
@@ -165,10 +165,10 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/assets/global/headerone.webp');
+ /* background-image: url('/assets/global/headerone.webp');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center center;*/
 }
 .profile-meta-row {
   max-width: var(--content-width);
@@ -560,7 +560,6 @@ a { color: inherit; text-decoration: none; }
   cursor: default;
 }
 .game-card:hover {
-  border-color: #333;
   transform: translateY(-2px);
 }
 .game-cover {
@@ -1249,15 +1248,7 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   gap: 2px;
 }
-.note-card {
-  display: block;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border-subtle);
-  text-decoration: none;
-  transition: opacity var(--transition);
-}
-.note-card:last-child { border-bottom: none; }
-.note-card:hover { opacity: 0.7; }
+
 .note-card-date {
   font-size: 0.7rem;
   color: var(--text-tertiary);
@@ -1337,12 +1328,15 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   padding: 12px 14px;
   border-radius: var(--radius-md);
-  transition: opacity var(--transition);
+  transition: border-color var(--transition), transform var(--transition);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
 }
-.note-card:last-child { border-bottom: none; }
-.note-card:hover { opacity: 0.6; }
+.note-card:last-child {}
+.note-card:hover {
+  border: 1px solid var(--accent);
+  transform: translateY(-2px);
+}
 
 @media (max-width: 600px) {
   .note-modal-box { padding: 32px 20px 60px; }
