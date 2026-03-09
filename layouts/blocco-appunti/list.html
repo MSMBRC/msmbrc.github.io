@@ -22,11 +22,18 @@
 <div class="notes-feed">
   <p style="margin-bottom:16px; color:var(--text-secondary)">Appunti di lavoro, condivisi col mondo.</p>
   {{ range .Paginator.Pages }}
-  <button class="note-card" data-id="{{ .File.UniqueID }}" data-slug="{{ .File.ContentBaseName }}">
+  <button class="note-card{{ if .Params.image }} note-card--with-image{{ end }}" data-id="{{ .File.UniqueID }}" data-slug="{{ .File.ContentBaseName }}">
+  <div class="note-card-text">
     <div class="note-card-date">{{ .Date.Format "2 Jan 2006" }}</div>
     <div class="note-card-title">{{ .Title }}</div>
     <div class="note-card-preview">{{ .Summary | plainify | truncate 120 }}</div>
-  </button>
+  </div>
+  {{ if .Params.image }}
+  <div class="note-card-image" style="background-image: url({{ .Params.image }})">
+    <!--<img src="{{ .Params.image }}" alt="{{ .Title }}" />-->
+  </div>
+  {{ end }}
+</button>
   {{ end }}
 </div>
 

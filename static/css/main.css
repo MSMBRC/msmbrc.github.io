@@ -1124,6 +1124,10 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.75;
   color: var(--text-primary);
 }
+.notes-body img {
+  width:100%;
+  border-radius: var(--radius-md);
+}
 .notes-body h1,
 .notes-body h2,
 .notes-body h3 {
@@ -1345,7 +1349,8 @@ a { color: inherit; text-decoration: none; }
 
 /* Card come button */
 .note-card {
-  display: block;
+  display: flex;
+  gap: 14px;
   width: 100%;
   text-align: left;
   cursor: pointer;
@@ -1362,6 +1367,13 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-1);
 }
+.note-card-image {
+  width: 220px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.note-card-image img {width: 100%}
 
 @media (max-width: 600px) {
   .note-modal-box { padding: 32px 20px 60px; }
