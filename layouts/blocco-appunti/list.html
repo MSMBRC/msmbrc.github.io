@@ -20,7 +20,7 @@
 
 <!-- Feed note -->
 <div class="notes-feed">
-  <p style="margin-bottom:16px; color:var(--text-secondary)">Appunti di lavoro, condivisi col mondo.</p>
+  <p style="color:var(--text-secondary)">Appunti di lavoro, condivisi col mondo.</p>
   {{ range .Paginator.Pages }}
   <button class="note-card{{ if .Params.image }} note-card--with-image{{ end }}" data-id="{{ .File.UniqueID }}" data-slug="{{ .File.ContentBaseName }}">
   <div class="note-card-text">
@@ -58,6 +58,7 @@
     if (!tpl) return;
     body.innerHTML = '';
     body.appendChild(tpl.content.cloneNode(true));
+    injectCodeHeaders(body);
     modal.classList.add('open');
     body.scrollTop = 0;
     document.body.style.overflow = 'hidden';
@@ -93,7 +94,36 @@
       closeModal();
     }
   });
+function injectCodeHeaders(container) {
+  container.querySelectorAll('.highlight').forEach(function(hl) {
+    if (hl.closest('.code-block')) return;
+    var code = hl.querySelector('code');
+    var lang = '';
+    if (code) { var m = code.className.match(/language-(\w+)/); if (m) lang = m[1]; }
+    wrapCode(hl, code || hl.querySelector('pre'), lang);
+  });
+  container.querySelectorAll('pre').forEach(function(pre) {
+    if (pre.closest('.code-block') || pre.closest('.highlight')) return;
+    var code = pre.querySelector('code');
+    var lang = '';
+    if (code) { var m = code.className.match(/language-(\w+)/); if (m) lang = m[1]; }
+    wrapCode(pre, code || pre, lang);
+  });
+}
 
+function wrapCode(el, codeEl, lang) {
+  var w = document.createElement('div'); w.className = 'code-block';
+  var h = document.createElement('div'); h.className = 'code-block-header';
+  var l = document.createElement('span'); l.className = 'code-block-lang'; l.textContent = lang || 'code';
+  var b = document.createElement('button'); b.className = 'code-block-copy'; b.textContent = 'copia';
+  b.addEventListener('click', function() {
+    navigator.clipboard.writeText(codeEl.innerText).then(function() {
+      b.textContent = 'copiato'; setTimeout(function() { b.textContent = 'copia'; }, 1500);
+    });
+  });
+  h.appendChild(l); h.appendChild(b);
+  el.parentNode.insertBefore(w, el); w.appendChild(h); w.appendChild(el);
+}
 })();
 </script>
 
