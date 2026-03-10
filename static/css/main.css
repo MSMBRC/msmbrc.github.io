@@ -758,7 +758,7 @@ a { color: inherit; text-decoration: none; }
   margin:0 auto;
 }
 .run-map svg polyline {
-  stroke: var(--accent);
+  stroke: var(--text-tertiary);
 }
 @media (max-width: 600px) {
   .booh { display: flex; }
