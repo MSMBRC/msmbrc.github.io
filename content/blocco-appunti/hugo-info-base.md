@@ -3,12 +3,10 @@ title: "Hugo — info base"
 date: 2026-01-20
 type: "blocco-appunti"
 draft: false
-image: "/assets/img/appunto_hugo.webp"
+layout: "single"
 ---
 
 Hugo è un generatore di siti statici. Significa che alla fine ti sputa fuori file `.html` puri, niente database, niente server strano.
-
-<img src="/assets/img/appunto_hugo.webp">
 
 ## Installazione
 

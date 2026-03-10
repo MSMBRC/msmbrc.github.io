@@ -4,12 +4,9 @@ date: 2026-01-03
 draft: false
 type: "blocco-appunti"
 layout: "single"
-image: "/assets/img/lova.webp"
 ---
 
 Ho usato Lovable per costruire un prototipo di web app — uno strumento per la gestione e valutazione dei fornitori. Caricamento documenti, scadenze, valutazioni, dashboard, comunicazioni.
-
-<img src="/assets/img/lova.webp">
 
 Il flusso di lavoro era semplice e ripetitivo: descrivevo ogni parte dell'applicazione man mano che la struttura si definiva, trasformavo le richieste in prompt ottimizzati per Lovable, verificavo l'output e tornavo in chat per affinare. Questo approccio ha permesso di procedere per iterazioni rapide, correggendo solo ciò che emergeva di volta in volta.
 
