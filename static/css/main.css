@@ -179,7 +179,7 @@ a { color: inherit; text-decoration: none; }
   background-image: url('/assets/global/headerone.webp');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
 }
 .profile-meta-row {
   max-width: var(--content-width);
