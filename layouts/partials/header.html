@@ -42,10 +42,10 @@
 
   <!-- Tabs -->
   <div class="profile-tabs">
-    <a href="/" data-text="Post" class="profile-tab{{ if .IsHome }} active{{ end }}">🚩 Post</a>
-    <a href="/libri/" data-text="Libri" class="profile-tab{{ if eq .RelPermalink "/libri/" }} active{{ end }}">📚 Libri</a>
-    <a href="/videogame/" data-text="Videogame" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}">🎮 Videogame</a>
-    <a href="/blocco-appunti/" data-text="Appunti" class="profile-tab{{ if in .RelPermalink "/blocco-appunti/" }} active{{ end }}">📒 Appunti</a>
+    <a href="/" class="profile-tab{{ if .IsHome }} active{{ end }}"><i data-lucide="HouseHeart"></i><span class="tit">Post</span></a>
+    <a href="/libri/" class="profile-tab{{ if eq .RelPermalink "/libri/" }} active{{ end }}"><i data-lucide="BookOpenText"></i><span class="tit">Libri</span></a>
+    <a href="/videogame/" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}"><i data-lucide="GamepadDirectional"></i><span class="tit">Videogame</span></a>
+    <a href="/blocco-appunti/" class="profile-tab{{ if in .RelPermalink "/blocco-appunti/" }} active{{ end }}"><i data-lucide="GamepadDirectional"></i><span class="tit">Appunti</span></a>
   </div>
 
 </div>
