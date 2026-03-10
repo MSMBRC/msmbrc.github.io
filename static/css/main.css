@@ -166,7 +166,7 @@ a { color: inherit; text-decoration: none; }
 
 .profile-banner {display: block;
     width: 100%;
-    height: 100px;
+    height: auto;
     background: var(--bg);
     position: relative;
     overflow: hidden;
