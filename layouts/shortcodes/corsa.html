@@ -37,20 +37,6 @@
 
   
   <div class="booh">
-  
-    {{ if $punti }}
-    <div class="run-map">
-      <svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <polyline
-          points="{{ $punti }}"
-          stroke="#3ecf8e"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </div>
-    {{ end }}
 
     <div class="run-stats">
     {{ if $distanza }}
@@ -96,6 +82,20 @@
     </div>
     {{ end }}
   </div>
+  
+  {{ if $punti }}
+  <div class="run-map">
+    <svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <polyline
+        points="{{ $punti }}"
+        stroke="#3ecf8e"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+  {{ end }}
 
   </div>
 
