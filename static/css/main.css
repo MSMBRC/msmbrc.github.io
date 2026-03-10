@@ -252,12 +252,18 @@ svg path.bbb {
 .profile-actions { display: flex; gap: 8px; padding-bottom: 4px; }
 
 .profile-info-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: var(--content-width);
     margin: 0 auto;
     padding: 0 16px;
 }
 
 .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 16px 24px;
