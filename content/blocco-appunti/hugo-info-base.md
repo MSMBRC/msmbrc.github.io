@@ -6,7 +6,7 @@ draft: false
 
 Hugo è un generatore di siti statici. Significa che alla fine ti sputa fuori file `.html` puri, niente database, niente server strano.
 
-## Installazionee
+## Installazione
 
 Su Mac:
 
