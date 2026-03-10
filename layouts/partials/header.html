@@ -2,17 +2,6 @@
 <div class="profile-header">
 
   <div class="profile-banner">
-  </div>
-
-  <div class="profile-info">
-    <div class="profile-avatar"></div>
-  </div>
-
-  <div class="profile-meta-row">
-    <div class="profile-name">
-      <h1>{{ .Site.Title }}</h1>
-    </div>
-    <!--<div class="profile-avatar"></div>-->
     <div class="profile-actions">
       <button class="theme-toggle" id="theme-toggle" aria-label="Cambia tema" title="Cambia tema">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -21,7 +10,17 @@
     </div>
   </div>
 
+  <div class="profile-info-avatar">
+    <div class="profile-avatar">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="var(--bg)"/>
+        <path fill="var(--text-primary)" d="M70 58.0107L69.999 58.0098L62.0166 65.9912L62.0176 65.9922L54.0352 73.9746L46.0527 65.9922L54.0342 58.0098L62.0166 50.0273L66.0078 54.0186L62.0176 50.0273L70 42.0449V58.0107ZM46.0518 34.0615L54.0342 42.0439L46.0518 50.0264L46.0527 50.0273L38.0703 58.0107L30.0869 50.0273L38.0703 42.0449L38.0693 42.0439L46.0508 34.0615L38.0693 26.0801H54.0342L46.0518 34.0615ZM62.0166 50.0264L54.0342 42.0439H70L62.0166 50.0264ZM54.0352 42.0439L46.0527 34.0615L54.0352 26.0791V42.0439Z"/>
+        </svg>
+    </div>
+  </div>
+
   <div class="profile-info">
+    <div class="profile-name"><h1>{{ .Site.Title }}</h1></div>
     <div class="profile-handle">{{ .Site.Params.handle }}</div>
     <div class="profile-bio">{{ .Site.Params.bio | safeHTML }}</div>
     <div class="profile-details">
