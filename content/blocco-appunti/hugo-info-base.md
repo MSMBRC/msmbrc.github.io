@@ -8,6 +8,8 @@ image: "/assets/img/appunto_hugo.webp"
 
 Hugo è un generatore di siti statici. Significa che alla fine ti sputa fuori file `.html` puri, niente database, niente server strano.
 
+<img src="/assets/img/appunto_hugo.webp">
+
 ## Installazione
 
 Su Mac:
