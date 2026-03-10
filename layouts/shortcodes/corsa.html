@@ -84,8 +84,8 @@
   </div>
   
   {{ if $punti }}
-  <div class="run-map">
-    <svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <div class="run-map" style="background-image: url({{ $fotocorsa }});">
+    <!--<svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
       <polyline
         points="{{ $punti }}"
         stroke="#3ecf8e"
@@ -93,7 +93,7 @@
         stroke-linecap="round"
         stroke-linejoin="round"
       />
-    </svg>
+    </svg>-->
   </div>
   {{ end }}
 
