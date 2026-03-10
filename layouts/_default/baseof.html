@@ -72,5 +72,70 @@
   </script>
   <script>lucide.createIcons();</script>
 
+  <!-- Inietta header su blocchi pre nativi di Hugo -->
+  <script>
+    (function() {
+      // Trova tutti i pre nelle aree di contenuto che NON sono già dentro .code-block
+      var containers = document.querySelectorAll('.notes-body, .post-content');
+      containers.forEach(function(container) {
+
+        // Caso 1: .highlight > pre (Hugo con syntax highlighting)
+        container.querySelectorAll('.highlight').forEach(function(hl) {
+          if (hl.closest('.code-block')) return;
+          var pre  = hl.querySelector('pre');
+          var code = hl.querySelector('code');
+          var lang = '';
+          if (code) {
+            var m = code.className.match(/language-(\w+)/);
+            if (m) lang = m[1];
+          }
+          wrapWithHeader(hl, code || pre, lang);
+        });
+
+        // Caso 2: pre senza .highlight sopra
+        container.querySelectorAll('pre').forEach(function(pre) {
+          if (pre.closest('.code-block')) return;
+          if (pre.closest('.highlight')) return;
+          var code = pre.querySelector('code');
+          var lang = '';
+          if (code) {
+            var m = code.className.match(/language-(\w+)/);
+            if (m) lang = m[1];
+          }
+          wrapWithHeader(pre, code || pre, lang);
+        });
+
+      });
+
+      function wrapWithHeader(el, codeEl, lang) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'code-block';
+
+        var header = document.createElement('div');
+        header.className = 'code-block-header';
+
+        var langSpan = document.createElement('span');
+        langSpan.className = 'code-block-lang';
+        langSpan.textContent = lang || 'code';
+
+        var copyBtn = document.createElement('button');
+        copyBtn.className = 'code-block-copy';
+        copyBtn.textContent = 'copia';
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(codeEl.innerText).then(function() {
+            copyBtn.textContent = 'copiato';
+            setTimeout(function() { copyBtn.textContent = 'copia'; }, 1500);
+          });
+        });
+
+        header.appendChild(langSpan);
+        header.appendChild(copyBtn);
+        el.parentNode.insertBefore(wrapper, el);
+        wrapper.appendChild(header);
+        wrapper.appendChild(el);
+      }
+    })();
+  </script>
+
 </body>
 </html>

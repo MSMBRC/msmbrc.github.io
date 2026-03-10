@@ -1170,7 +1170,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-mono);
   font-size: 0.85em;
   background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 4px;
   padding: 1px 5px;
 }
@@ -1260,7 +1260,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-mono);
   font-size: 0.85em;
   background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 4px;
   padding: 1px 5px;
 }
@@ -1389,4 +1389,81 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 600px) {
   .note-modal-box { padding: 32px 20px 60px; }
+}
+
+/* ─── Code block shortcode ───────────────────────────────────── */
+/* ─── Blocchi codice (shortcode + nativi Hugo) ───────────────── */
+.code-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 16px 0;
+  font-family: var(--font-mono);
+}
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-hover);
+}
+.code-block-lang {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+.code-block-copy {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color var(--transition);
+  font-family: var(--font-mono);
+}
+.code-block-copy:hover { color: var(--text-primary); }
+
+/* Pre e code dentro .code-block (sia shortcode che nativi) */
+.code-block pre,
+.code-block-pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: var(--bg-elevated) !important;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.code-block code,
+.code-block-code {
+  display: block;
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--text-primary) !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  white-space: pre;
+  -webkit-text-fill-color: var(--text-primary) !important;
+}
+/* Azzera syntax highlighting Chroma */
+.code-block span {
+  color: var(--text-primary) !important;
+  background: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+}
+/* Hugo wrappa in .highlight > pre - reset */
+.code-block .highlight {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
 }
