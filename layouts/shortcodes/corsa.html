@@ -41,6 +41,15 @@
             <span class="run-stat-icon"><i data-lucide="MapPin"></i></span>
             <span class="run-stat-value">{{ $distanza }}</span>
             <span class="run-stat-label">Distanza</span>
+            <svg class="percorso" viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <polyline
+                points="{{ $punti }}"
+                stroke="#3ecf8e"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </div>
           {{ end }}
           {{ if $tempo }}
@@ -76,6 +85,7 @@
             <span class="run-stat-icon"><i data-lucide="Flame"></i></span>
             <span class="run-stat-value">{{ $cal }}</span>
             <span class="run-stat-label">Calorie</span>
+
           </div>
           {{ end }}
     </div>
