@@ -764,8 +764,7 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 600px) {
   .booh { display: flex; }
-  .run-map svg {max-height: 120px;}
-  .run-map {padding-bottom:0;}
+  .run-map {padding-bottom:0; min-height: 200px}
   .run-stats {padding-top:0;}
 }
 
