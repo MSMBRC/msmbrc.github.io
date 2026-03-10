@@ -3,13 +3,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     /*font-size: clamp(1.75rem, 4vw, 2.5rem);*/
     font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 1.2;
     color: var(--text-accent);
-    margin-bottom: 8px;
   }
 
 :root {
@@ -223,7 +222,7 @@ a { color: inherit; text-decoration: none; }
 .profile-info {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 14px 24px 0;
+  padding: 6px 24px 0;
 }
 .profile-name {
   display: flex;
@@ -664,7 +663,6 @@ a { color: inherit; text-decoration: none; }
   border-radius: var(--radius-md);
   overflow: hidden;
   margin: 8px 0 16px;
-  border-top: 1px solid var(--accent);
   transition: all var(--transition);
   box-shadow: var(--shadow-0);
 }
@@ -679,9 +677,10 @@ a { color: inherit; text-decoration: none; }
   justify-content: space-between;
 }
 .run-widget-title {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--accent);
+  text-transform: uppercase;
+  color: var(--text-secondary);
   letter-spacing: 0.08em;
 }
 .run-widget-date {
@@ -705,6 +704,10 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+.run-stat svg {
+  width: 16px;
+  color: var(--text-tertiary);
 }
 .run-stat-icon {
   font-size: 0.85rem;

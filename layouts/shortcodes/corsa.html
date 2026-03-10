@@ -55,42 +55,42 @@
     <div class="run-stats">
     {{ if $distanza }}
     <div class="run-stat">
-      <span class="run-stat-icon">📍</span>
+      <span class="run-stat-icon"><i data-lucide="MapPin"></i></span>
       <span class="run-stat-value">{{ $distanza }}</span>
       <span class="run-stat-label">Distanza</span>
     </div>
     {{ end }}
     {{ if $tempo }}
     <div class="run-stat">
-      <span class="run-stat-icon">⏱</span>
+      <span class="run-stat-icon"><i data-lucide="Timer"></i></span>
       <span class="run-stat-value">{{ $tempo }}</span>
       <span class="run-stat-label">Tempo</span>
     </div>
     {{ end }}
     {{ if $passo }}
     <div class="run-stat">
-      <span class="run-stat-icon">👟</span>
+      <span class="run-stat-icon"><i data-lucide="Footprints"></i></span>
       <span class="run-stat-value">{{ $passo }}</span>
       <span class="run-stat-label">Passo medio</span>
     </div>
     {{ end }}
     {{ if $hr_avg }}
     <div class="run-stat">
-      <span class="run-stat-icon">❤️</span>
+      <span class="run-stat-icon"><i data-lucide="Activity"></i></span>
       <span class="run-stat-value">{{ $hr_avg }} <span class="run-stat-unit">bpm</span></span>
       <span class="run-stat-label">Battito medio</span>
     </div>
     {{ end }}
     {{ if $hr_max }}
     <div class="run-stat">
-      <span class="run-stat-icon">🔺</span>
+      <span class="run-stat-icon"><i data-lucide="Triangle"></i></span>
       <span class="run-stat-value">{{ $hr_max }} <span class="run-stat-unit">bpm</span></span>
       <span class="run-stat-label">Battito max</span>
     </div>
     {{ end }}
     {{ if $cal }}
     <div class="run-stat">
-      <span class="run-stat-icon">🔥</span>
+      <span class="run-stat-icon"><i data-lucide="Flame"></i></span>
       <span class="run-stat-value">{{ $cal }}</span>
       <span class="run-stat-label">Calorie</span>
     </div>
