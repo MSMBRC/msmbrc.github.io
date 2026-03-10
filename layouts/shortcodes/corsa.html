@@ -33,132 +33,51 @@
 
   <div class="run-widget-header">
     <span class="run-widget-title">{{ $titolo }}</span>
-  </div>
+  </div> <!-- run-widget-header -->
 
-  
-  <div class="booh">
+  <div class="run-stats">
+          {{ if $distanza }}
+          <div class="run-stat">
+            <span class="run-stat-icon"><i data-lucide="MapPin"></i></span>
+            <span class="run-stat-value">{{ $distanza }}</span>
+            <span class="run-stat-label">Distanza</span>
+          </div>
+          {{ end }}
+          {{ if $tempo }}
+          <div class="run-stat">
+            <span class="run-stat-icon"><i data-lucide="Timer"></i></span>
+            <span class="run-stat-value">{{ $tempo }}</span>
+            <span class="run-stat-label">Tempo</span>
+          </div>
+          {{ end }}
+          {{ if $passo }}
+          <div class="run-stat">
+            <span class="run-stat-icon"><i data-lucide="Footprints"></i></span>
+            <span class="run-stat-value">{{ $passo }}</span>
+            <span class="run-stat-label">Passo medio</span>
+          </div>
+          {{ end }}
+          {{ if $hr_avg }}
+          <div class="run-stat">
+            <span class="run-stat-icon"><i data-lucide="Activity"></i></span>
+            <span class="run-stat-value">{{ $hr_avg }} <span class="run-stat-unit">bpm</span></span>
+            <span class="run-stat-label">Battito medio</span>
+          </div>
+          {{ end }}
+          {{ if $hr_max }}
+          <div class="run-stat">
+            <span class="run-stat-icon"><i data-lucide="Triangle"></i></span>
+            <span class="run-stat-value">{{ $hr_max }} <span class="run-stat-unit">bpm</span></span>
+            <span class="run-stat-label">Battito max</span>
+          </div>
+          {{ end }}
+          {{ if $cal }}
+          <div class="run-stat">
+            <span class="run-stat-icon"><i data-lucide="Flame"></i></span>
+            <span class="run-stat-value">{{ $cal }}</span>
+            <span class="run-stat-label">Calorie</span>
+          </div>
+          {{ end }}
+    </div>
 
-    <div class="run-stats">
-    {{ if $distanza }}
-    <div class="run-stat">
-      <span class="run-stat-icon"><i data-lucide="MapPin"></i></span>
-      <span class="run-stat-value">{{ $distanza }}</span>
-      <span class="run-stat-label">Distanza</span>
-    </div>
-    {{ end }}
-    {{ if $tempo }}
-    <div class="run-stat">
-      <span class="run-stat-icon"><i data-lucide="Timer"></i></span>
-      <span class="run-stat-value">{{ $tempo }}</span>
-      <span class="run-stat-label">Tempo</span>
-    </div>
-    {{ end }}
-    {{ if $passo }}
-    <div class="run-stat">
-      <span class="run-stat-icon"><i data-lucide="Footprints"></i></span>
-      <span class="run-stat-value">{{ $passo }}</span>
-      <span class="run-stat-label">Passo medio</span>
-    </div>
-    {{ end }}
-    {{ if $hr_avg }}
-    <div class="run-stat">
-      <span class="run-stat-icon"><i data-lucide="Activity"></i></span>
-      <span class="run-stat-value">{{ $hr_avg }} <span class="run-stat-unit">bpm</span></span>
-      <span class="run-stat-label">Battito medio</span>
-    </div>
-    {{ end }}
-    {{ if $hr_max }}
-    <div class="run-stat">
-      <span class="run-stat-icon"><i data-lucide="Triangle"></i></span>
-      <span class="run-stat-value">{{ $hr_max }} <span class="run-stat-unit">bpm</span></span>
-      <span class="run-stat-label">Battito max</span>
-    </div>
-    {{ end }}
-    {{ if $cal }}
-    <div class="run-stat">
-      <span class="run-stat-icon"><i data-lucide="Flame"></i></span>
-      <span class="run-stat-value">{{ $cal }}</span>
-      <span class="run-stat-label">Calorie</span>
-    </div>
-    {{ end }}
-  </div>
-  
-  {{ if $punti }}
-  <div class="run-map" style="background-image: url({{ $fotocorsa }});">
-    <!--<svg viewBox="{{ $viewbox }}" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <polyline
-        points="{{ $punti }}"
-        stroke="#3ecf8e"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>-->
-  </div>
-  {{ end }}
-
-  </div>
-
-  
-
-  <!--{{ if and $hr_vals $hr_dists }}
-  <div class="run-hr-chart">
-    <div class="run-hr-label">
-      <span>Battito cardiaco</span>
-      {{ if $hr_max }}<span class="run-hr-max">max {{ $hr_max }} bpm</span>{{ end }}
-    </div>
-    <div class="run-hr-svg-wrap">
-      <svg class="run-hr-svg" id="hr-svg-{{ $uid }}" viewBox="0 0 600 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="hr-grad-{{ $uid }}" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <path id="hr-fill-{{ $uid }}" fill="url(#hr-grad-{{ $uid }})"/>
-        <polyline id="hr-line-{{ $uid }}"
-          data-vals="{{ $hr_vals }}"
-          data-dists="{{ $hr_dists }}"
-          fill="none"
-          stroke="#ef4444"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </div>
-  </div>
-  <script>
-  (function() {
-    var line = document.getElementById("hr-line-{{ $uid }}");
-    var fill = document.getElementById("hr-fill-{{ $uid }}");
-    if (!line) return;
-    var vals  = line.getAttribute("data-vals").split(",").map(Number);
-    var dists = line.getAttribute("data-dists").split(",").map(Number);
-    var W = 600, H = 64, padX = 4, padY = 6;
-    var minV = Math.min.apply(null, vals) - 8;
-    var maxV = Math.max.apply(null, vals) + 8;
-    var maxD = Math.max.apply(null, dists);
-    var pts = vals.map(function(v, i) {
-      var x = (dists[i] / maxD) * (W - padX*2) + padX;
-      var y = (1 - (v - minV) / (maxV - minV)) * (H - padY*2) + padY;
-      return [parseFloat(x.toFixed(1)), parseFloat(y.toFixed(1))];
-    });
-    line.setAttribute("points", pts.map(function(p){ return p[0]+","+p[1]; }).join(" "));
-    // Area fill path
-    var d = "M " + pts[0][0] + "," + H;
-    pts.forEach(function(p){ d += " L " + p[0] + "," + p[1]; });
-    d += " L " + pts[pts.length-1][0] + "," + H + " Z";
-    fill.setAttribute("d", d);
-  })();
-  </script>
-  {{ end }}
-
-  
-
-    <div class="run-widget-img">
-      <img class="run-image" src="{{ $fotocorsa }}"/>
-    </div>
-  -->
-
-</div>
+</div> <!-- run-widget -->

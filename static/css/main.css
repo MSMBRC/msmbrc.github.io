@@ -689,7 +689,7 @@ svg path.bbb {
   box-shadow: var(--shadow-1);
 }
 .run-widget-header {
-  padding: 14px 18px 12px;
+  padding: 16px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -710,9 +710,9 @@ svg path.bbb {
 /* Griglia widgettini stat */
 .run-stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  padding: 0;
+  padding: 0 16px 16px;
 }
 .run-stat {
   background: var(--bg);
