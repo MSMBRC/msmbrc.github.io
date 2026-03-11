@@ -824,6 +824,8 @@ svg path.bbb {
   .booh { display: flex; }
   .run-map {padding-bottom:0; min-height: 200px}
   .run-stats {padding-top:0;}
+  .run-stat svg.percorso {    width: 34px;
+    top: 11px;}
 }
 
 /* Grafico HR — rosso */
