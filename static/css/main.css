@@ -316,6 +316,7 @@ svg path.bbb {
 .profile-tab svg {
   width: 14px;
   colore: var(--text-secondary);
+  display:none;
 }
 /* Trick anti-shift: riserva lo spazio del testo bold in anticipo
    con un pseudo-elemento invisibile della stessa larghezza */
