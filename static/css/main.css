@@ -1830,6 +1830,7 @@ svg path.bbb {
   margin-bottom: 10px;
   margin-top: 6px;
 }
+.league-logo img {height: 42px;}
 .league-name {
   font-size: 0.875rem;
   font-weight: 700;

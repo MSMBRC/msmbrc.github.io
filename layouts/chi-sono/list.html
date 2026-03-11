@@ -20,6 +20,7 @@
 
 <!-- ── HERO ──────────────────────────────────────────────────── -->
 <div class="portfolio-page">
+
   <section class="pf-hero">
       {{ if eq .Site.Language.Lang "en" }}
         Hello, I currently live in Milan and from nine to six I work in UX and UI design. Here you can find out more about me and the tools I use every day.
@@ -28,6 +29,27 @@
       {{ end }}
     </p>
   </section>
+
+
+  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Daily tools{{ else }}Strumenti di ogni giorno{{ end }}</div>
+
+  <div class="league-grid">
+    <div class="league-card">
+      <div class="league-logo"><img src="/assets/global/global_iphone.webp"></div>
+      <div class="league-name">iPhone 15</div>
+      <div class="league-sport">Cellulare</div>
+    </div>
+    <div class="league-card">
+      <div class="league-logo"><img src="/assets/global/global_xbox.webp"></div>
+      <div class="league-name">Xbox Series X</div>
+      <div class="league-sport">Gaming</div>
+    </div>
+    <div class="league-card">
+      <div class="league-logo"><img src="/assets/global/global_macbookpro.webp"></div>
+      <div class="league-name">Macbook Pro 14'' 2021</div>
+      <div class="league-sport">Computer</div>
+    </div>
+  </div>
 
   <!-- ── ESPERIENZE LAVORATIVE ─────────────────────────────── -->
   <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Work Experience{{ else }}Esperienze lavorative{{ end }}</div>
