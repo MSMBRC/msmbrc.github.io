@@ -762,6 +762,11 @@ svg path.bbb {
   right: 8px;
   color: var(--text-tertiary);
 }
+
+.run-stat svg.percorso polyline {
+  stroke: var(--accent);
+  stroke-width: 8;
+}
 .run-stat-icon {
   font-size: 0.85rem;
   line-height: 1;
