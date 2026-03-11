@@ -10,9 +10,6 @@ in_lettura:
 # ── Letti ────────────────────────────────────────────────────────
 # In ordine di lettura — il più recente per primo
 letti:
-  - titolo: "12 Regole per la Vita: Un antidoto al caos. Nuova edizione"
-    autore: "Dr. Jordan B. Peterson"
-    image: "https://books.google.com/books/content?id=6HLVEAAAQBAJ&printsec=frontcover&img=1&zoom=3&edge=curl&source=gbs_api"
   - titolo: "22/11/63"
     autore: "Stephen King"
     image: "https://books.google.com/books/content?id=9fSsAAAAQBAJ&printsec=frontcover&img=1&zoom=3&edge=curl&source=gbs_api"
