@@ -1037,7 +1037,7 @@ svg path.bbb {
   .book-cover {width: 60px;}
   .profile-tab { padding: 12px 2px; font-size: 0.9rem; }
   .topbar-inner { padding: 0 16px; }
-  .profile-info { padding: 14px 16px 0; }
+  .profile-info { padding: 14px 16px; }
   .profile-meta-row { padding: 0 16px; }
   .profile-tabs { padding: 0px 3px; }
   .post-feed { padding: 0 16px; }
