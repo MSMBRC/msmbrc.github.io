@@ -964,7 +964,7 @@ svg path.bbb {
 
 /* Cover libro — proporzione 2:3 (verticale) */
 .book-cover {
-  width: 45px;
+  width: 30px;
   flex-shrink: 0;
   aspect-ratio: 2 / 3;
   border-radius: 4px;
