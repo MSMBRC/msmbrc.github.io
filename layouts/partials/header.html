@@ -3,6 +3,13 @@
 
   <div class="profile-banner">
     <div class="profile-actions">
+
+      <!-- Language toggle -->
+      <button class="lang-toggle" id="lang-toggle" aria-label="Cambia lingua" title="Cambia lingua">
+        {{ if eq .Site.Language.Lang "en" }}<span class="lang-label">EN</span>{{ else }}<span class="lang-label">IT</span>{{ end }}
+      </button>
+
+      <!-- Theme toggle -->
       <button class="theme-toggle" id="theme-toggle" aria-label="Cambia tema" title="Cambia tema">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -15,14 +22,14 @@
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="100" height="100" fill="var(--bg)"/>
         <path fill="var(--text-primary)" d="M70 58.0107L69.999 58.0098L62.0166 65.9912L62.0176 65.9922L54.0352 73.9746L46.0527 65.9922L54.0342 58.0098L62.0166 50.0273L66.0078 54.0186L62.0176 50.0273L70 42.0449V58.0107ZM46.0518 34.0615L54.0342 42.0439L46.0518 50.0264L46.0527 50.0273L38.0703 58.0107L30.0869 50.0273L38.0703 42.0449L38.0693 42.0439L46.0508 34.0615L38.0693 26.0801H54.0342L46.0518 34.0615ZM62.0166 50.0264L54.0342 42.0439H70L62.0166 50.0264ZM54.0352 42.0439L46.0527 34.0615L54.0352 26.0791V42.0439Z"/>
-        </svg>
+      </svg>
     </div>
   </div>
 
   <div class="profile-info">
     <div class="profile-name"><h1>{{ .Site.Title }}</h1></div>
     <div class="profile-handle">{{ .Site.Params.handle }}</div>
-    <div class="profile-bio">{{ .Site.Params.bio | safeHTML }}</div>
+    <div class="profile-bio">{{ .Site.Language.Params.bio | default .Site.Params.bio | safeHTML }}</div>
     <div class="profile-details">
       {{ with .Site.Params.location }}
       <span class="profile-detail-item">
@@ -33,18 +40,74 @@
       {{ with .Site.Params.email }}
       <span class="profile-detail-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:{{ . }}">Scrivimi</a>
+        <a href="mailto:{{ . }}">{{ if eq $.Site.Language.Lang "en" }}Contact me{{ else }}Scrivimi{{ end }}</a>
       </span>
       {{ end }}
     </div>
   </div>
 
   <!-- Tabs -->
+  {{ $lang := .Site.Language.Lang }}
+  {{ $isEn := eq $lang "en" }}
+  {{ $prefix := "" }}{{ if $isEn }}{{ $prefix = "/en" }}{{ end }}
+
   <div class="profile-tabs">
-    <a href="/" class="profile-tab{{ if .IsHome }} active{{ end }}"><i data-lucide="HouseHeart"></i><span class="tit">Post</span></a>
-    <a href="/libri/" class="profile-tab{{ if eq .RelPermalink "/libri/" }} active{{ end }}"><i data-lucide="BookOpenText"></i><span class="tit">Libri</span></a>
-    <a href="/videogame/" class="profile-tab{{ if eq .RelPermalink "/videogame/" }} active{{ end }}"><i data-lucide="GamepadDirectional"></i><span class="tit">Videogame</span></a>
-    <a href="/blocco-appunti/" class="profile-tab{{ if in .RelPermalink "/blocco-appunti/" }} active{{ end }}"><i data-lucide="notebook"></i><span class="tit">Appunti</span></a>
+    <a href="{{ $prefix }}/" class="profile-tab{{ if .IsHome }} active{{ end }}">
+      <i data-lucide="HouseHeart"></i><span class="tit">{{ if $isEn }}Posts{{ else }}Post{{ end }}</span>
+    </a>
+
+    <a href="{{ $prefix }}/libri/" class="profile-tab{{ if in .RelPermalink "libri" }} active{{ end }}">
+      <i data-lucide="BookOpenText"></i><span class="tit">{{ if $isEn }}Books{{ else }}Libri{{ end }}</span>
+    </a>
+
+    <a href="{{ $prefix }}/videogame/" class="profile-tab{{ if in .RelPermalink "videogame" }} active{{ end }}">
+      <i data-lucide="GamepadDirectional"></i><span class="tit">{{ if $isEn }}Games{{ else }}Videogame{{ end }}</span>
+    </a>
+
+    <a href="{{ $prefix }}/blocco-appunti/" class="profile-tab{{ if in .RelPermalink "blocco-appunti" }} active{{ end }}">
+      <i data-lucide="NotebookPen"></i><span class="tit">{{ if $isEn }}Notes{{ else }}Appunti{{ end }}</span>
+    </a>
+
+    {{ if $isEn }}
+    <a href="/en/about/" class="profile-tab{{ if in .RelPermalink "about" }} active{{ end }}">
+      <i data-lucide="Smile"></i><span class="tit">About</span>
+    </a>
+    {{ else }}
+    <a href="/chi-sono/" class="profile-tab{{ if in .RelPermalink "chi-sono" }} active{{ end }}">
+      <i data-lucide="Smile"></i><span class="tit">Chi sono</span>
+    </a>
+    {{ end }}
   </div>
 
 </div>
+
+<script>
+(function() {
+  var langBtn = document.getElementById('lang-toggle');
+  if (!langBtn) return;
+  langBtn.addEventListener('click', function() {
+    var path = window.location.pathname;
+    var isEn = path.startsWith('/en/') || path === '/en';
+
+    // Mappatura sezioni IT <-> EN
+    var itToEn = { 'chi-sono': 'about' };
+    var enToIt = { 'about': 'chi-sono' };
+
+    if (isEn) {
+      var newPath = path.replace(/^\/en/, '') || '/';
+      // Sostituisci sezione EN con equivalente IT
+      for (var enSec in enToIt) {
+        newPath = newPath.replace(new RegExp('^\\/' + enSec + '(\\/|$)'), '/' + enToIt[enSec] + '$1');
+      }
+      window.location.href = newPath;
+    } else {
+      var newPath = path;
+      // Sostituisci sezione IT con equivalente EN
+      for (var itSec in itToEn) {
+        newPath = newPath.replace(new RegExp('^\\/' + itSec + '(\\/|$)'), '/' + itToEn[itSec] + '$1');
+      }
+      window.location.href = '/en' + (newPath === '/' ? '/' : newPath);
+    }
+  });
+})();
+</script>

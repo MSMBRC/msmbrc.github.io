@@ -1,22 +1,23 @@
 {{ define "main" }}
+{{ $isEn := eq .Site.Language.Lang "en" }}
 
 {{ with .Params.in_lettura }}
 <div class="books-section">
   <div class="books-section-header">
-    <span class="books-section-title">In lettura</span>
-    <span class="books-section-count">{{ len . }} {{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}</span>
+    <span class="books-section-title">{{ if $isEn }}Currently reading{{ else }}In lettura{{ end }}</span>
+    <span class="books-section-count">{{ len . }} {{ if $isEn }}{{ if eq (len .) 1 }}book{{ else }}books{{ end }}{{ else }}{{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}{{ end }}</span>
   </div>
   <div class="book-list inlettura">
     {{ range . }}
     <div class="book-item">
-      <span class="book-badge">In lettura</span>
+      <span class="book-badge">{{ if $isEn }}Reading{{ else }}In lettura{{ end }}</span>
       <div class="book-cover">
         {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder"></div>{{ end }}
       </div>
       <div class="book-info">
         <div class="book-title">{{ .titolo }}</div>
         <div class="book-author">{{ .autore }}</div>
-        <div class="book-year">Letto nel {{ .anno }}</div>
+        <div class="book-year">{{ if $isEn }}Reading in {{ else }}Letto nel {{ end }}{{ .anno }}</div>
       </div>
     </div>
     {{ end }}
@@ -24,34 +25,11 @@
 </div>
 {{ end }}
 
-<!--{{ with .Params.prossimi }}
-<div class="books-section">
-  <div class="books-section-header">
-    <span class="books-section-title">Prossimi</span>
-    <span class="books-section-count">{{ len . }} {{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}</span>
-  </div>
-  <div class="book-list">
-    {{ range . }}
-    <div class="book-item">
-      <div class="book-cover">
-        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder">📖</div>{{ end }}
-      </div>
-      <div class="book-info">
-        <div class="book-title">{{ .titolo }}</div>
-        <div class="book-author">{{ .autore }}</div>
-        <div class="book-year">{{ .anno }}</div>
-      </div>
-    </div>
-    {{ end }}
-  </div>
-</div>
-{{ end }}-->
-
 {{ with .Params.letti }}
 <div class="books-section">
   <div class="books-section-header">
-    <span class="books-section-title">Letti</span>
-    <span class="books-section-count">{{ len . }} {{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}</span>
+    <span class="books-section-title">{{ if $isEn }}Read{{ else }}Letti{{ end }}</span>
+    <span class="books-section-count">{{ len . }} {{ if $isEn }}{{ if eq (len .) 1 }}book{{ else }}books{{ end }}{{ else }}{{ if eq (len .) 1 }}libro{{ else }}libri{{ end }}{{ end }}</span>
   </div>
   <div class="book-list">
     {{ range . }}

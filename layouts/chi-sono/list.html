@@ -1,0 +1,121 @@
+{{ define "main" }}
+
+<!-- ── MODALE PORTFOLIO ──────────────────────────────────────── -->
+<div class="note-modal" id="portfolio-modal">
+  <div class="note-modal-backdrop" id="portfolio-modal-backdrop"></div>
+  <div class="note-modal-box">
+    <button class="close-toggle" id="portfolio-modal-close" aria-label="Chiudi">✕</button>
+    <div class="note-modal-body" id="portfolio-modal-body"></div>
+  </div>
+</div>
+
+<!-- Contenuti nascosti dei progetti (template tag) -->
+{{ range .Pages }}
+<template id="portfolio-content-{{ .File.ContentBaseName }}">
+  <div class="note-single-meta">{{ .Params.tag }} · {{ .Date.Format "Jan 2006" }}</div>
+  <h1 class="note-single-title">{{ .Title }}</h1>
+  <div class="notes-body">{{ .Content }}</div>
+</template>
+{{ end }}
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<div class="portfolio-page">
+  <section class="pf-hero">
+      {{ if eq .Site.Language.Lang "en" }}
+        Hello, I currently live in Milan and from nine to six I work in UX and UI design. Here you can find out more about me and the tools I use every day.
+      {{ else }}
+        Ciao, vivo attualmente a Milano e dalle nove alle diciotto mi occupo di ux e ui design. Qui puoi sapere qualcosa più di me e degli strumenti che uso quotidianamente.
+      {{ end }}
+    </p>
+  </section>
+
+  <!-- ── ESPERIENZE LAVORATIVE ─────────────────────────────── -->
+  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Work Experience{{ else }}Esperienze lavorative{{ end }}</div>
+
+  <div class="experience-list">
+
+    <div class="experience-item">
+      <div class="experience-left"><div class="experience-logo">🟦</div></div>
+      <div class="experience-body">
+        <div class="experience-role">Senior Product Designer</div>
+        <div class="experience-company">Didimora</div>
+        <div class="experience-period">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          {{ if eq .Site.Language.Lang "en" }}Jan 2023 – Present · 2 yrs 2 mos{{ else }}Gen 2023 – Presente · 2 anni 2 mesi{{ end }}
+        </div>
+        <div class="experience-desc">
+          {{ if eq .Site.Language.Lang "en" }}I’m currently consulting for a proptech startup, leading the complete redesign of their web application. My focus is on improving usability for the target audience, streamlining workflows, and establishing a scalable design system while enabling the development team to work independently on design tasks.{{ else }}Attualmente sto fornendo consulenza a una startup nel settore proptech, guidando la riprogettazione completa della loro applicazione web. Il mio obiettivo è migliorare l'usabilità per il pubblico di destinazione, semplificare i flussi di lavoro e creare un sistema di progettazione scalabile, consentendo al contempo al team di sviluppo di lavorare in modo indipendente sulle attività di progettazione.{{ end }}
+        </div>
+        <div class="experience-skills">
+          <span class="portfolio-tag">Product Design</span>
+          <span class="portfolio-tag">Design Systems</span>
+          <span class="portfolio-tag">Figma</span>
+          <span class="portfolio-tag">User Research</span>
+          <span class="portfolio-tag">Ai Builder</span>
+          <span class="portfolio-tag">Real Estate</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── CATEGORIE ATTIVE ──────────────────────────────────── 
+  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Tool{{ else }}Strumenti{{ end }}</div>
+
+  <div class="league-grid">
+    <div class="league-card"><div class="league-badge">Active ›</div><div class="league-logo">🎨</div><div class="league-name">UX / UI</div><div class="league-sport">Design</div></div>
+    <div class="league-card"><div class="league-badge">Active ›</div><div class="league-logo">⚙️</div><div class="league-name">Dev</div><div class="league-sport">Engineering</div></div>
+    <div class="league-card"><div class="league-badge">Active ›</div><div class="league-logo">🧩</div><div class="league-name">Design System</div><div class="league-sport">Systems</div></div>
+    <div class="league-card"><div class="league-badge">Active ›</div><div class="league-logo">✍️</div><div class="league-name">Writing</div><div class="league-sport">Content</div></div>
+    <div class="league-card"><div class="league-badge">Active ›</div><div class="league-logo">🔬</div><div class="league-name">Research</div><div class="league-sport">Strategy</div></div>
+    <div class="league-card"><div class="league-badge">Active ›</div><div class="league-logo">📱</div><div class="league-name">Mobile</div><div class="league-sport">App Design</div></div>
+  </div>
+
+</div>-->
+
+<script>
+(function() {
+  var modal    = document.getElementById('portfolio-modal');
+  var backdrop = document.getElementById('portfolio-modal-backdrop');
+  var closeBtn = document.getElementById('portfolio-modal-close');
+  var body     = document.getElementById('portfolio-modal-body');
+
+  function openModal(slug) {
+    var tpl = document.getElementById('portfolio-content-' + slug);
+    if (!tpl) return;
+    body.innerHTML = '';
+    body.appendChild(tpl.content.cloneNode(true));
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    history.pushState({ portfolioSlug: slug }, '', window.location.pathname + '#' + slug);
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    history.pushState(null, '', window.location.pathname);
+  }
+
+  document.querySelectorAll('.card[data-slug]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      openModal(card.getAttribute('data-slug'));
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+  window.addEventListener('popstate', function(e) {
+    if (e.state && e.state.portfolioSlug) openModal(e.state.portfolioSlug);
+    else closeModal();
+  });
+
+  // Apri da URL hash al caricamento
+  var hash = window.location.hash.replace('#', '');
+  if (hash) openModal(hash);
+})();
+</script>
+
+{{ end }}

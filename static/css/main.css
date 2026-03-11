@@ -261,9 +261,9 @@ svg path.bbb {
 }
 
 .profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 16px 24px;
@@ -762,7 +762,6 @@ svg path.bbb {
   right: 8px;
   color: var(--text-tertiary);
 }
-
 .run-stat svg.percorso polyline {
   stroke: var(--accent);
   stroke-width: 8;
@@ -1524,4 +1523,347 @@ svg path.bbb {
   margin: 0 !important;
   padding: 0 !important;
   background: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PORTFOLIO PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Language toggle ────────────────────────────────────────── */
+.lang-toggle {
+  background: none;
+  border: 1px solid var(--text-tertiary);
+  border-radius: 20px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  transition: color var(--transition), border-color var(--transition);
+  padding: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+}
+.lang-toggle:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+.lang-label { pointer-events: none; }
+
+/* ─── Portfolio page wrapper ─────────────────────────────────── */
+.portfolio-page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+/* ─── Hero section ───────────────────────────────────────────── */
+.pf-hero {
+  padding: 48px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-radius: 99px;
+  padding: 4px 12px;
+  margin-bottom: 20px;
+}
+.hero-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.pf-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  color: var(--text-accent);
+  margin-bottom: 16px;
+}
+.pf-hero p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+}
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 9px 18px;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--text-accent);
+  color: var(--bg);
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: var(--bg-elevated); color: var(--text-primary); }
+
+/* ─── Section heading ────────────────────────────────────────── */
+.section-heading {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  padding: 28px 0 12px;
+}
+.portfolio-page .section-heading { padding-top: 32px; }
+
+/* ─── Experience list ────────────────────────────────────────── */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.experience-list::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 15px;
+  width: 1px;
+  background: var(--border);
+}
+.experience-item {
+  display: flex;
+  gap: 20px;
+  padding: 0 0 28px;
+  position: relative;
+}
+.experience-item:last-child { padding-bottom: 0; }
+.experience-left {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 32px;
+  position: relative;
+  z-index: 1;
+}
+.experience-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.experience-body {
+  flex: 1;
+  min-width: 0;
+  padding-top: 4px;
+}
+.experience-role {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-accent);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.experience-company {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 1px;
+}
+.experience-period {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 5px;
+  font-family: var(--font-mono);
+}
+.experience-period svg { width: 11px; height: 11px; }
+.experience-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-top: 10px;
+}
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+/* ─── Card grid (portfolio) ──────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 0 0 16px;
+}
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+  text-align: left;
+  width: 100%;
+  color: inherit;
+  font-family: inherit;
+  box-shadow: var(--shadow-0);
+}
+.card:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-1);
+}
+.card-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.card-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-accent);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.card-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.card-date { font-size: 0.75rem; color: var(--text-tertiary); }
+.card-arrow {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  transition: color var(--transition), transform var(--transition);
+}
+.card:hover .card-arrow {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+/* ─── League grid (categorie) ────────────────────────────────── */
+.league-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0 0 32px;
+}
+.league-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color var(--transition), background var(--transition);
+}
+.league-card:hover {
+  border-color: #333;
+  background: var(--bg-hover);
+}
+.league-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.league-logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  margin-top: 6px;
+}
+.league-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+}
+.league-sport {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+/* ─── Portfolio tags ─────────────────────────────────────────── */
+.portfolio-tag {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Tabs: 5 colonne quando portfolio è presente ────────────── */
+.profile-tabs {
+  grid-template-columns: repeat(5, 1fr) !important;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .portfolio-page { padding: 0 16px 48px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .league-grid { grid-template-columns: repeat(2, 1fr); }
+  .pf-hero { padding: 32px 0 28px; }
+  .hero-actions { flex-direction: column; }
 }

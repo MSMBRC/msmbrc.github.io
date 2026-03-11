@@ -1,234 +1,112 @@
-# MSMBRC — Guida completa
+# MSMBRC — Sito Hugo
 
-Blog personale basato su **Hugo**, pubblicato su **GitHub Pages** con deploy automatico.
-
----
-
-## Struttura del progetto
+## Struttura contenuti
 
 ```
-msmbrc/
-├── .github/workflows/deploy.yml   → deploy automatico su ogni push
-├── archetypes/posts.md             → template per i nuovi post
-├── content/posts/                  → qui vivono tutti i tuoi post (.md)
-├── layouts/
-│   ├── _default/                   → template HTML delle pagine
-│   ├── partials/                   → header e footer riutilizzabili
-│   └── shortcodes/post-link.html   → componente link visivo
-├── static/
-│   ├── assets/global/              → profilo.jpg, headerone.jpg
-│   ├── assets/img/                 → immagini dei post
-│   └── css/main.css                → tutto il CSS del sito
-└── hugo.toml                       → configurazione Hugo
+content/
+├── posts/              ← Post in italiano
+├── portfolio/          ← Progetti portfolio in italiano
+├── blocco-appunti/     ← Appunti in italiano
+├── libri/              ← Libri
+├── videogame/          ← Videogame
+└── en/                 ← Tutto il contenuto in inglese (stesso percorso)
+    ├── posts/
+    ├── portfolio/
+    └── blocco-appunti/
 ```
 
 ---
 
-## SETUP INIZIALE (una volta sola)
+## Flusso per pubblicare contenuti in DUE lingue
 
-### 1. Installa Hugo sul tuo Mac
+### Nuovo Post
 
 ```bash
-brew install hugo
+# Crea il file italiano
+hugo new posts/nome-post.md
+
+# Crea il file inglese (stesso slug)
+hugo new --contentDir content/en posts/nome-post.md
 ```
 
-Verifica:
-```bash
-hugo version
-```
+Poi modifica i due file: `content/posts/nome-post.md` e `content/en/posts/nome-post.md`.
 
-### 2. Crea il repository su GitHub
+Il toggle IT/EN nell'header cambierà automaticamente tra i due.
 
-1. Vai su [github.com](https://github.com) → **New repository**
-2. Nome repository: `TUOUSERNAME.github.io`  
-   *(sostituisci TUOUSERNAME con il tuo username GitHub)*
-3. Imposta come **Public**
-4. Non aggiungere README né .gitignore (li abbiamo già)
-5. Clicca **Create repository**
+---
 
-### 3. Modifica il file `hugo.toml`
-
-Apri `hugo.toml` e cambia la prima riga:
-
-```toml
-baseURL = "https://TUOUSERNAME.github.io/"
-```
-
-Sostituisci `TUOUSERNAME` con il tuo username GitHub reale.
-
-Puoi anche aggiornare i tuoi dati personali nella sezione `[params]`.
-
-### 4. Carica il progetto su GitHub
+### Nuovo Progetto Portfolio
 
 ```bash
-cd msmbrc                          # entra nella cartella
-git init                           # inizializza git
-git add .                          # aggiungi tutti i file
-git commit -m "primo commit"       # primo commit
-git branch -M main                 # rinomina il branch in main
-git remote add origin https://github.com/TUOUSERNAME/TUOUSERNAME.github.io.git
-git push -u origin main            # carica su GitHub
+# Italiano
+hugo new portfolio/nome-progetto.md
+
+# Inglese
+hugo new --contentDir content/en portfolio/nome-progetto.md
 ```
 
-### 5. Attiva GitHub Pages
-
-1. Sul tuo repository GitHub → **Settings** → **Pages**
-2. In **Source** seleziona: **GitHub Actions**
-3. Salva
-
-GitHub avvierà automaticamente il primo deploy. Dopo 2-3 minuti il sito sarà live su:  
-`https://TUOUSERNAME.github.io`
+**Front matter del portfolio:**
+```yaml
+---
+title: "Titolo del Progetto"
+date: 2026-01-01
+tag: "UX / UI"          # ← tag mostrato sulla card (UX / UI | Dev | Design System | Writing | ecc)
+description: "Breve descrizione visibile nella card (max 2 righe)"
+---
+```
 
 ---
 
-## PUBBLICARE UN NUOVO POST
-
-### Metodo rapido (da terminale)
+### Nuovo Appunto (blocco-appunti)
 
 ```bash
-cd msmbrc
-hugo new posts/titolo-del-post.md
-```
+# Italiano
+hugo new blocco-appunti/nome-appunto.md
 
-Hugo crea automaticamente il file in `content/posts/` con la data di oggi.  
-Aprilo con qualsiasi editor di testo (TextEdit, VS Code, etc.).
-
-### Struttura di un post
-
-```markdown
----
-title: "Il titolo del tuo post"
-date: 2026-03-10
-draft: false
----
-
-Primo paragrafo del post. Scrivi normalmente.
-
-Secondo paragrafo. Vai a capo due volte per creare un nuovo paragrafo.
-
-Puoi usare **grassetto**, *corsivo*, e [link classici](https://esempio.com).
-```
-
-> **Importante:** finché `draft: true`, il post non viene pubblicato.  
-> Cambia in `draft: false` quando è pronto.
-
----
-
-## TIPI DI CONTENUTO
-
-### Testo semplice
-
-Scrivi normalmente in Markdown. I link scritti così:
-
-```markdown
-Leggi [questo articolo](https://esempio.com) per saperne di più.
-```
-
-appaiono con il classico stile sottolineato.
-
----
-
-### Immagine standard
-
-```markdown
-![Descrizione](../assets/img/nome-immagine.jpg)
-```
-
-Metti l'immagine nella cartella `static/assets/img/` prima di usarla.
-
----
-
-### Link card visivo (shortcode post-link)
-
-Usa questo componente quando vuoi condividere un link in modo visivo,  
-con immagine e titolo, come una preview:
-
-```
-{{</* post-link 
-  url="https://esempio.com/articolo" 
-  title="Titolo dell'articolo che condividi" 
-  image="/assets/img/cover-articolo.jpg" 
-*/>}}
-```
-
-**Parametri:**
-- `url` — URL esterno (obbligatorio)
-- `title` — Titolo mostrato nella card (obbligatorio)  
-- `image` — Immagine di anteprima (opzionale — se omessa appare un'icona 🔗)
-
-Se non vuoi il blocco visivo, usa semplicemente un link Markdown normale.
-
----
-
-### Struttura mista (testo + immagine + link card)
-
-```markdown
-Prima parte del testo.
-
-![Una foto](/assets/img/foto.jpg)
-
-Testo dopo l'immagine che commenta quanto sopra.
-
-{{</* post-link url="https://fonte.com" title="Fonte dell'articolo" */>}}
-
-Conclusione del post.
+# Inglese
+hugo new --contentDir content/en blocco-appunti/nome-appunto.md
 ```
 
 ---
 
-## AGGIORNARE IL SITO
+## Come funziona il toggle della lingua
 
-Ogni volta che vuoi pubblicare qualcosa:
+Il pulsante `IT/EN` nell'header fa un redirect automatico:
+- `msmbrc.github.io/portfolio/` → `msmbrc.github.io/en/portfolio/`
+- `msmbrc.github.io/en/posts/` → `msmbrc.github.io/posts/`
+
+Non serve configurazione aggiuntiva: basta che esista il file nella cartella `content/en/` con lo stesso slug.
+
+**Regola pratica:** se il file IT è `content/posts/mio-post.md`, quello EN deve essere `content/en/posts/mio-post.md`.
+
+---
+
+## Note sul Portfolio
+
+Le card dei progetti aprono una **modale** (stile Appunti) con il contenuto completo del file `.md`.
+
+La sezione "Esperienze lavorative" e "Categorie attive" sono statiche nel layout `layouts/portfolio/list.html` — modificale direttamente lì.
+
+---
+
+## Build e deploy
 
 ```bash
-cd msmbrc
-
-# (scrivi o modifica i file in content/posts/)
-
-git add .
-git commit -m "nuovo post: titolo"
-git push
+hugo server          # sviluppo locale
+hugo --minify        # build produzione
 ```
 
-GitHub fa tutto il resto automaticamente. Dopo circa 1-2 minuti il sito è aggiornato.
-
 ---
 
-## AGGIORNARE LE IMMAGINI DI PROFILO
+## Contenuti già tradotti (presenti nel progetto)
 
-- **Foto profilo:** sostituisci `static/assets/global/profilo.jpg`
-- **Banner header:** sostituisci `static/assets/global/headerone.jpg`
-
-Poi fai `git add . && git commit -m "aggiorno immagini" && git push`.
-
----
-
-## ANTEPRIMA LOCALE (opzionale)
-
-Prima di pubblicare puoi vedere il sito in locale:
-
-```bash
-cd msmbrc
-hugo server
-```
-
-Apri nel browser: `http://localhost:1313`
-
-Il sito si aggiorna in tempo reale mentre scrivi. Premi `Ctrl+C` per fermarlo.
-
----
-
-## DOMANDE FREQUENTI
-
-**Come cambio il numero di post per pagina?**  
-In `hugo.toml`, modifica: `paginate = 7`
-
-**Come cambio il mio nome/bio/Twitter?**  
-In `hugo.toml`, modifica la sezione `[params]`.
-
-**Il deploy fallisce — come capisco perché?**  
-Su GitHub → tab **Actions** → clicca sul workflow fallito → leggi i log.
-
-**Posso avere post senza immagine nel post-link?**  
-Sì, ometti semplicemente il parametro `image`. Apparirà un'icona 🔗 al posto dell'immagine.
-# msmbrc.github.io
+| Sezione | IT | EN |
+|---|---|---|
+| Posts/eccomi | `content/posts/eccomi.md` | `content/en/posts/eccomi.md` |
+| Posts/graziano | `content/posts/grazianovisconti.md` | `content/en/posts/grazianovisconti.md` |
+| Posts/corsa | `content/posts/corsa-8-marzo.md` | `content/en/posts/corsa-8-marzo.md` |
+| Appunti/hugo | `content/blocco-appunti/hugo-info-base.md` | `content/en/blocco-appunti/hugo-info-base.md` |
+| Appunti/lovable | `content/blocco-appunti/prototipare-con-lovable.md` | `content/en/blocco-appunti/prototipare-con-lovable.md` |
+| Videogame | `content/videogame/_index.md` | `content/en/videogame/_index.md` |
+| Libri | `content/libri/_index.md` | `content/en/libri/_index.md` |
+| Portfolio (×4) | `content/portfolio/*.md` | `content/en/portfolio/*.md` |

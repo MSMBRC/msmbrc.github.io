@@ -1,22 +1,40 @@
 baseURL = "https://msmbrc.github.io/"
-languageCode = "it-IT"
-title = "MSMBRC"
+title   = "MSMBRC"
 
-# Paginazione: 7 post per pagina
+# ── Multilingua ────────────────────────────────────────────────
+defaultContentLanguage = "it"
+defaultContentLanguageInSubdir = false
 
+[languages]
+  [languages.it]
+    languageCode = "it-IT"
+    languageName = "Italiano"
+    weight       = 1
+    [languages.it.params]
+      bio       = "Designer, videogiocatore, lettore e smanettone."
+      langLabel = "IT"
+
+  [languages.en]
+    languageCode = "en-US"
+    languageName = "English"
+    weight       = 2
+    contentDir   = "content/en"
+    [languages.en.params]
+      bio       = "Designer, gamer, reader and tinkerer."
+      langLabel = "EN"
+
+# ── Parametri globali ──────────────────────────────────────────
 [params]
-  author      = "MSMBRC"
-  handle      = ""
-  bio         = "Designer, videogiocatore, lettore e smanettone."
-  location    = "Milano"
-  twitter     = "asd"
-  email       = "massimiliano.barci@proton.me"
-  copyright   = "© 2026 MSMBRC"
+  author    = "MSMBRC"
+  handle    = ""
+  location  = "Milano"
+  email     = "massimiliano.barci@proton.me"
+  copyright = "© 2026 MSMBRC"
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      # Permette HTML raw nei file .md (necessario per i shortcode inline)
       unsafe = true
+
 [pagination]
   pagerSize = 7
