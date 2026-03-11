@@ -1036,7 +1036,6 @@ svg path.bbb {
 }
 
 @media (max-width: 600px) {
-  .book-cover {width: 60px;}
   .profile-tab { padding: 12px 2px; font-size: 0.9rem; }
   .topbar-inner { padding: 0 16px; }
   .profile-info { padding: 14px 16px; }
