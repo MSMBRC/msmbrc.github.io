@@ -1800,7 +1800,7 @@ svg path.bbb {
 .league-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 8px;
   margin: 0 0 32px;
 }
 .league-card {
