@@ -47,7 +47,7 @@
       data-title="{{ .titolo | lower }}"
       data-author="{{ .autore | lower }}">
       <div class="book-cover">
-        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder">📖</div>{{ end }}
+        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder"><i data-lucide="Book"></i></div>{{ end }}
       </div>
       <div class="book-info">
         <div class="book-title">{{ .titolo }}</div>

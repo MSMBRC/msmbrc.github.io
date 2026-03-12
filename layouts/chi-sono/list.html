@@ -21,17 +21,17 @@
 <!-- ── HERO ──────────────────────────────────────────────────── -->
 <div class="portfolio-page">
 
-  <section class="pf-hero">
+  <!--<section class="pf-hero">
       {{ if eq .Site.Language.Lang "en" }}
         Hello, I currently live in Milan and from nine to six I work in UX and UI design. Here you can find out more about me and the tools I use every day.
       {{ else }}
         Ciao, vivo attualmente a Milano e dalle nove alle diciotto mi occupo di ux e ui design. Qui puoi sapere qualcosa più di me e degli strumenti che uso quotidianamente.
       {{ end }}
     </p>
-  </section>
+  </section>-->
 
 
-  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Daily tools{{ else }}Strumenti di ogni giorno{{ end }}</div>
+  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Daily hardware{{ else }}Daily hardware{{ end }}</div>
 
   <div class="league-grid">
     <div class="league-card">
@@ -49,10 +49,44 @@
       <div class="league-name">Macbook Pro 14'' 2021</div>
       <div class="league-sport">Computer</div>
     </div>
+    <div class="league-card">
+      <div class="league-logo"><img src="/assets/global/global_g245.webp"></div>
+      <div class="league-name">Garmin Forerunner 245</div>
+      <div class="league-sport">Smartwatch</div>
+    </div>
+  </div>
+
+  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Daily software{{ else }}Daily software{{ end }}</div>
+
+  <div class="software-grid">
+    <div class="software-card">
+      <div class="league-logo"><img src="/assets/global/global_proton.svg"></div>
+      <div class="league-name">Proton.me</div>
+    </div>
+    <div class="software-card">
+      <div class="league-logo"><img src="/assets/global/global_claude.svg"></div>
+      <div class="league-name">Claude.ai</div>
+    </div>
+    <div class="software-card">
+      <div class="league-logo"><img src="/assets/global/global_notesnook.svg"></div>
+      <div class="league-name">Notesnook</div>
+    </div>
+    <div class="software-card">
+      <div class="league-logo"><img src="/assets/global/global_lovable.svg"></div>
+      <div class="league-name">Lovable.dev</div>
+    </div>
+    <div class="software-card">
+      <div class="league-logo"><img src="/assets/global/global_brave.svg"></div>
+      <div class="league-name">Brave</div>
+    </div>
+    <div class="software-card">
+      <div class="league-logo"><img src="/assets/global/global_figma.svg"></div>
+      <div class="league-name">Figma</div>
+    </div>
   </div>
 
   <!-- ── ESPERIENZE LAVORATIVE ─────────────────────────────── -->
-  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Work Experience{{ else }}Esperienze lavorative{{ end }}</div>
+  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Current job{{ else }}Posizione attuale{{ end }}</div>
 
   <div class="experience-list">
 
