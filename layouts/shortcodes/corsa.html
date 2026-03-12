@@ -34,6 +34,13 @@
   <div class="run-widget-header">
     <span class="run-widget-title">{{ $titolo }}</span>
   </div> <!-- run-widget-header -->
+  {{ if $fotocorsa }}
+  <div class="run-widget-image" style="background-image: url('{{ $fotocorsa }}')">
+    
+  </div>
+  {{ end }}       
+            <!--<img src="{{ $fotocorsa }}" alt="{{ $titolo }}" class="run-photo" />-->
+      
 
   <div class="run-stats">
           {{ if $distanza }}

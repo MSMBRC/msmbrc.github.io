@@ -743,12 +743,22 @@ svg path.bbb {
   font-family: var(--font-mono);
 }
 
+.run-photo {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+.run-widget-image {
+  height: 170px;
+    background-size: cover;
+    background-position: center center;
+}
+
 /* Griglia widgettini stat */
 .run-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  padding: 0 16px 16px;
+  padding: 16px 16px;
 }
 .run-stat {
   /*background: var(--bg);
