@@ -5,7 +5,7 @@ draft: false
 tags: ["corsette"]
 ---
 
-Non correvo da dicembre, ricomincio così.
+Non correvo da dicembre.
 
 {{< corsa
   titolo="5k Run for Life 2026 | Autodromo di Monza"

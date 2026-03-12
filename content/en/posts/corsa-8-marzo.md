@@ -5,7 +5,7 @@ draft: false
 tags: ["corsette"]
 ---
 
-I hadn't run like that since December. I started again like this.
+I hadn't run like that since December.
 
 {{< corsa
   titolo="5k Run for Life 2026 | Autodromo di Monza"

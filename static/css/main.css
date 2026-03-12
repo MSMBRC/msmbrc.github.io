@@ -13,7 +13,7 @@
 
 :root {
   --bg:            #0e0e0e;
-  --bg-elevated:   #171717;
+  --bg-elevated:   #171717; /*171717*//*040404*/
   --bg-hover:      #1c1c1c;
   --border:        #222222;
   --border-subtle: #1a1a1a;
@@ -39,7 +39,7 @@
 /* ─── Light mode ─────────────────────────────────────────────── */
 [data-theme="light"] {
   --bg:            #faf9f7;
-  --bg-elevated:   #f2f0ed;
+  --bg-elevated:   #f2f0ed; /*f2f0ed*//*fcfcfc*/
   --bg-hover:      #eceae6;
   --border:        #dedad4;
   --border-subtle: #e8e5e0;
@@ -709,10 +709,11 @@ svg path.bbb {
   margin-top: 2px;
 }
 
+
 /* ─── Responsive ─────────────────────────────────────────────── */
 /* ─── Run Widget ────────────────────────────────────────────── */
 .run-widget {
-  background: var(--bew);
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   overflow: hidden;
