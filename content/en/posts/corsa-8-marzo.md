@@ -2,14 +2,14 @@
 title: "5k Run for Life 2026"
 date: 2026-03-08
 draft: false
-tags: ["running"]
+tags: ["corsette"]
 ---
 
-I hadn't run since December — starting back like this.
+I hadn't run like that since December. I started again like this.
 
 {{< corsa
   titolo="5k Run for Life 2026 | Autodromo di Monza"
-  data="Mar 8, 2026"
+  data="8 mar 2026"
   distanza="5.30 km"
   tempo="34:42"
   passo="6:32 /km"

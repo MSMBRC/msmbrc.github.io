@@ -1,8 +1,9 @@
 {{ define "main" }}
-
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $paginator := .Paginate $posts }}
 <div class="post-feed">
 
-  {{ range where .Paginator.Pages "Section" "posts" }}
+{{ range $paginator.Pages }}
   <article class="post">
     <div class="post-avatar">
       <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +33,7 @@
 </div>
 
 <!-- Paginazione -->
-{{ $paginator := .Paginator }}
+
 {{ if gt $paginator.TotalPages 1 }}
 <nav class="pagination">
   {{ if $paginator.HasPrev }}

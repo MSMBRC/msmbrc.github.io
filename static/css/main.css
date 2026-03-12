@@ -392,6 +392,12 @@ svg path.bbb {
   word-break: break-word;
 }
 
+.post-content iframe {
+  width:100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
 /* Paragrafi */
 .post-content p { margin-bottom: 15px; }
 .post-content p:last-child { margin-bottom: 0; }
@@ -1867,7 +1873,8 @@ svg path.bbb {
   margin-bottom: 10px;
   margin-top: 6px;
 }
-.league-logo img {height: 32px;}
+.league-logo img {max-height: 22px;
+    width: 22px;}
 .league-name {
   font-size: 0.875rem;
   font-weight: 700;
