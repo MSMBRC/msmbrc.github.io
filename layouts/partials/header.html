@@ -55,6 +55,10 @@
     <a href="{{ $prefix }}/" class="profile-tab{{ if .IsHome }} active{{ end }}">
       <i data-lucide="HouseHeart"></i><span class="tit">{{ if $isEn }}Posts{{ else }}Posts{{ end }}</span>
     </a>
+    
+    <a href="{{ $prefix }}/blocco-appunti/" class="profile-tab{{ if in .RelPermalink "blocco-appunti" }} active{{ end }}">
+      <i data-lucide="NotebookPen"></i><span class="tit">{{ if $isEn }}Notes{{ else }}Appunti{{ end }}</span>
+    </a>
 
     <a href="{{ $prefix }}/libri/" class="profile-tab{{ if in .RelPermalink "libri" }} active{{ end }}">
       <i data-lucide="BookOpenText"></i><span class="tit">{{ if $isEn }}Books{{ else }}Libri{{ end }}</span>
@@ -64,9 +68,6 @@
       <i data-lucide="GamepadDirectional"></i><span class="tit">{{ if $isEn }}Games{{ else }}Games{{ end }}</span>
     </a>
 
-    <a href="{{ $prefix }}/blocco-appunti/" class="profile-tab{{ if in .RelPermalink "blocco-appunti" }} active{{ end }}">
-      <i data-lucide="NotebookPen"></i><span class="tit">{{ if $isEn }}Notes{{ else }}Appunti{{ end }}</span>
-    </a>
 
     {{ if $isEn }}
     <a href="/en/about/" class="profile-tab{{ if in .RelPermalink "about" }} active{{ end }}">
