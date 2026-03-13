@@ -1469,6 +1469,7 @@ svg path.bbb {
   border: 1px solid var(--accent);
   transform: translateY(-2px);
   box-shadow: var(--shadow-1);
+  border-bottom-width: 4px;
 }
 .note-card-image {
   width: 220px;
