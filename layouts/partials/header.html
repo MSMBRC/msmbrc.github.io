@@ -53,7 +53,7 @@
 
   <div class="profile-tabs">
     <a href="{{ $prefix }}/" class="profile-tab{{ if .IsHome }} active{{ end }}">
-      <i data-lucide="HouseHeart"></i><span class="tit">{{ if $isEn }}Hi{{ else }}Ciao{{ end }}</span>
+      <i data-lucide="HouseHeart"></i><span class="tit">{{ if $isEn }}Posts{{ else }}Posts{{ end }}</span>
     </a>
 
     <a href="{{ $prefix }}/libri/" class="profile-tab{{ if in .RelPermalink "libri" }} active{{ end }}">
@@ -70,11 +70,11 @@
 
     {{ if $isEn }}
     <a href="/en/about/" class="profile-tab{{ if in .RelPermalink "about" }} active{{ end }}">
-      <i data-lucide="Smile"></i><span class="tit">About</span>
+      <i data-lucide="Smile"></i><span class="tit">Me</span>
     </a>
     {{ else }}
     <a href="/chi-sono/" class="profile-tab{{ if in .RelPermalink "chi-sono" }} active{{ end }}">
-      <i data-lucide="Smile"></i><span class="tit">Chi sono</span>
+      <i data-lucide="Smile"></i><span class="tit">Io</span>
     </a>
     {{ end }}
   </div>
