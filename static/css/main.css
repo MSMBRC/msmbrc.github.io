@@ -1680,7 +1680,7 @@ svg path.bbb {
   flex-direction: column;
   position: relative;
 }
-.experience-list::before {
+/*.experience-list::before {
   content: '';
   position: absolute;
   top: 8px;
@@ -1688,7 +1688,7 @@ svg path.bbb {
   left: 15px;
   width: 1px;
   background: var(--border);
-}
+}*/
 .experience-item {
   display: flex;
   gap: 20px;
@@ -1704,12 +1704,13 @@ svg path.bbb {
   width: 32px;
   position: relative;
   z-index: 1;
+  padding-top: 8px;
 }
 .experience-logo {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: var(--bg-elevated);
+  background: var(--text-primary);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
