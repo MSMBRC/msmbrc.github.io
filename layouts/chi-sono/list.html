@@ -18,6 +18,38 @@
 </template>
 {{ end }}
 
+
+  <!-- ── ESPERIENZE LAVORATIVE ─────────────────────────────── -->
+  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Current job{{ else }}Posizione attuale{{ end }}</div>
+
+  <div class="experience-list">
+
+    <div class="experience-item">
+      <div class="experience-left"><div class="experience-logo">🟦</div></div>
+      <div class="experience-body">
+        <div class="experience-role">Senior Product Designer</div>
+        <div class="experience-company">Didimora</div>
+        <div class="experience-period">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          {{ if eq .Site.Language.Lang "en" }}Jan 2023 – Present · 2 yrs 2 mos{{ else }}Gen 2023 – Presente · 2 anni 2 mesi{{ end }}
+        </div>
+        <div class="experience-desc">
+          {{ if eq .Site.Language.Lang "en" }}I’m currently consulting for a proptech startup, leading the complete redesign of their web application. My focus is on improving usability for the target audience, streamlining workflows, and establishing a scalable design system while enabling the development team to work independently on design tasks.{{ else }}Attualmente sto fornendo consulenza a una startup nel settore proptech, guidando la riprogettazione completa della loro applicazione web. Il mio obiettivo è migliorare l'usabilità per il pubblico di destinazione, semplificare i flussi di lavoro e creare un sistema di progettazione scalabile, consentendo al contempo al team di sviluppo di lavorare in modo indipendente sulle attività di progettazione.{{ end }}
+        </div>
+        <div class="experience-skills">
+          <span class="portfolio-tag">Product Design</span>
+          <span class="portfolio-tag">Design Systems</span>
+          <span class="portfolio-tag">Figma</span>
+          <span class="portfolio-tag">User Research</span>
+          <span class="portfolio-tag">Ai Builder</span>
+          <span class="portfolio-tag">Real Estate</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
 <!-- ── HERO ──────────────────────────────────────────────────── -->
 <div class="portfolio-page">
 
@@ -83,36 +115,6 @@
       <div class="league-logo"><img src="/assets/global/global_figma.svg"></div>
       <div class="league-name">Figma</div>
     </div>
-  </div>
-
-  <!-- ── ESPERIENZE LAVORATIVE ─────────────────────────────── -->
-  <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Current job{{ else }}Posizione attuale{{ end }}</div>
-
-  <div class="experience-list">
-
-    <div class="experience-item">
-      <div class="experience-left"><div class="experience-logo">🟦</div></div>
-      <div class="experience-body">
-        <div class="experience-role">Senior Product Designer</div>
-        <div class="experience-company">Didimora</div>
-        <div class="experience-period">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          {{ if eq .Site.Language.Lang "en" }}Jan 2023 – Present · 2 yrs 2 mos{{ else }}Gen 2023 – Presente · 2 anni 2 mesi{{ end }}
-        </div>
-        <div class="experience-desc">
-          {{ if eq .Site.Language.Lang "en" }}I’m currently consulting for a proptech startup, leading the complete redesign of their web application. My focus is on improving usability for the target audience, streamlining workflows, and establishing a scalable design system while enabling the development team to work independently on design tasks.{{ else }}Attualmente sto fornendo consulenza a una startup nel settore proptech, guidando la riprogettazione completa della loro applicazione web. Il mio obiettivo è migliorare l'usabilità per il pubblico di destinazione, semplificare i flussi di lavoro e creare un sistema di progettazione scalabile, consentendo al contempo al team di sviluppo di lavorare in modo indipendente sulle attività di progettazione.{{ end }}
-        </div>
-        <div class="experience-skills">
-          <span class="portfolio-tag">Product Design</span>
-          <span class="portfolio-tag">Design Systems</span>
-          <span class="portfolio-tag">Figma</span>
-          <span class="portfolio-tag">User Research</span>
-          <span class="portfolio-tag">Ai Builder</span>
-          <span class="portfolio-tag">Real Estate</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- ── CATEGORIE ATTIVE ──────────────────────────────────── 
