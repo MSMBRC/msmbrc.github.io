@@ -199,6 +199,13 @@ a { color: inherit; text-decoration: none; }
     flex-direction: column;
     padding: 16px;
 }
+.vimeo-box {
+  background: var(--bg-elevated);
+  text-align: center;
+  vertical-align: center;
+}
+.vimeo-box iframe {z-index:10;}
+.vimeo-box span {text-align:center; width:100px ;position: absolute; z-index:7; top: 49%; color: var(--text-secondary); margin-left:-50px;}
 /*.profile-banner::before {
   content: '';
   position: absolute;
