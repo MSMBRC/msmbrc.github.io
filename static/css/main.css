@@ -12,8 +12,8 @@
   }
 
 :root {
-  --bg:            #0e0e0e;
-  --bg-elevated:   #171717; /*171717*//*040404*/
+  --bg:            #171615; /*0e0e0e*//*171615*/
+  --bg-elevated:   #1e1d1c; /*171717*//*1e1d1c*/
   --bg-hover:      #1c1c1c;
   --border:        #222222;
   --border-subtle: #1a1a1a;
@@ -38,8 +38,8 @@
 
 /* ─── Light mode ─────────────────────────────────────────────── */
 [data-theme="light"] {
-  --bg:            #faf9f7;
-  --bg-elevated:   #f2f0ed; /*f2f0ed*//*fcfcfc*/
+  --bg:            #faf8f4; /*faf9f7*//*faf8f4*/
+  --bg-elevated:   #fdfbfa; /*f2f0ed*//*fdfbfa*/
   --bg-hover:      #eceae6;
   --border:        #dedad4;
   --border-subtle: #e8e5e0;

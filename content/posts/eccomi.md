@@ -4,5 +4,4 @@ date: 2026-03-05
 draft: false
 ---
 
-Primo bost del blog con tecnologia <a href="https://gohugo.io/" target="_blank">Hugo</a>.<br>
-I post qui sotto li ho caricati postumi, per prova.
+Primo vero post del blog.
