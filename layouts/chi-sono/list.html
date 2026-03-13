@@ -18,6 +18,17 @@
 </template>
 {{ end }}
 
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<div class="portfolio-page">
+
+  <!--<section class="pf-hero">
+      {{ if eq .Site.Language.Lang "en" }}
+        Hello, I currently live in Milan and from nine to six I work in UX and UI design. Here you can find out more about me and the tools I use every day.
+      {{ else }}
+        Ciao, vivo attualmente a Milano e dalle nove alle diciotto mi occupo di ux e ui design. Qui puoi sapere qualcosa più di me e degli strumenti che uso quotidianamente.
+      {{ end }}
+    </p>
+  </section>-->
 
   <!-- ── ESPERIENZE LAVORATIVE ─────────────────────────────── -->
   <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Current job{{ else }}Posizione attuale{{ end }}</div>
@@ -48,19 +59,6 @@
     </div>
 
   </div>
-
-
-<!-- ── HERO ──────────────────────────────────────────────────── -->
-<div class="portfolio-page">
-
-  <!--<section class="pf-hero">
-      {{ if eq .Site.Language.Lang "en" }}
-        Hello, I currently live in Milan and from nine to six I work in UX and UI design. Here you can find out more about me and the tools I use every day.
-      {{ else }}
-        Ciao, vivo attualmente a Milano e dalle nove alle diciotto mi occupo di ux e ui design. Qui puoi sapere qualcosa più di me e degli strumenti che uso quotidianamente.
-      {{ end }}
-    </p>
-  </section>-->
 
 
   <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Daily hardware{{ else }}Daily hardware{{ end }}</div>
@@ -116,6 +114,8 @@
       <div class="league-name">Figma</div>
     </div>
   </div>
+
+  
 
   <!-- ── CATEGORIE ATTIVE ──────────────────────────────────── 
   <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Tool{{ else }}Strumenti{{ end }}</div>
