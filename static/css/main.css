@@ -1462,6 +1462,7 @@ svg path.bbb {
   box-shadow: var(--shadow-0);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
+  border-bottom-width: 4px;
 }
 .note-card:last-child {}
 .note-card:hover {
