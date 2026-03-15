@@ -202,6 +202,7 @@ a { color: inherit; text-decoration: none; }
 .vimeo-box {
   background: var(--bg-elevated);
   text-align: center;
+  margin: 14px 0;
   vertical-align: center;
 }
 .vimeo-box iframe {z-index:10;}
@@ -374,6 +375,7 @@ svg path.bbb {
   flex-shrink: 0;
   overflow: hidden;
   border: 1px solid var(--text-tertiary);
+  display:none;
 }
 
 .post-body { flex: 1; min-width: 0; }
@@ -384,7 +386,7 @@ svg path.bbb {
   gap: 6px;
   justify-content: space-between;
 }
-.post-header-left { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.post-header-left { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; justify-content: space-between; width:100%}
 .post-author { font-size: 0.9rem; font-weight: 700; color: var(--text-accent); letter-spacing: -0.01em; }
 .post-author-badge { color: var(--accent); font-size: 0.8rem; }
 .post-handle { font-size: 0.8125rem; color: var(--text-tertiary); font-family: var(--font-mono); }
@@ -1067,23 +1069,20 @@ svg path.bbb {
 }
 
 @media (max-width: 600px) {
-  .profile-tab { padding: 12px 2px; font-size: 0.9rem; }
   .topbar-inner { padding: 0 16px; }
   .profile-info { padding: 14px 16px; }
   .profile-meta-row { padding: 0 16px; }
-  .profile-tabs { padding: 0px 3px; }
+  .profile-tabs { padding: 0px 3px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; }
   .post-feed { padding: 0 16px; }
   .footer-inner { flex-direction: column; gap: 12px; }
   .games-grid { grid-template-columns: repeat(3, 1fr); }
   .games-section { padding: 0 16px; }
   .run-stat-value { font-size: 0.9rem; }
 
-  .profile-tabs {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
   .profile-tabs::-webkit-scrollbar { display: none; }
 }
 
@@ -1922,7 +1921,8 @@ svg path.bbb {
 
 /* ─── Tabs: 5 colonne quando portfolio è presente ────────────── */
 .profile-tabs {
-  grid-template-columns: repeat(5, 1fr) !important;
+  /*grid-template-columns: repeat(5, 1fr);*/
+  display: flex;
 }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
