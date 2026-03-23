@@ -1,142 +1,70 @@
 <!DOCTYPE html>
-<html lang="it" data-theme="dark">
+<html lang="{{ .Site.Language.Lang }}" data-theme="dark">
 <head>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.bio | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
-
-  <!-- PWA -->
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#0e0e0e" id="meta-theme-color" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}" />
-  <meta name="mobile-web-app-capable" content="yes" />
-
-  <!-- Icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
   <link rel="stylesheet" href="/css/main.css" />
-  {{ if .Params.robots }}<meta name="robots" content="{{ .Params.robots }}">{{ end }}
-
-  <!-- Applica tema prima del paint per evitare flash -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var theme = saved || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
     })();
   </script>
 </head>
 <body>
-
   {{- partial "header.html" . -}}
-
-  <main>
+  <main class="main-content">
     {{- block "main" . }}{{- end }}
   </main>
-
-  {{- partial "footer.html" . -}}
-
-  <script>
-    (function() {
-      var btn = document.getElementById('theme-toggle');
-      if (!btn) return;
-      function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        var meta = document.getElementById('meta-theme-color');
-        if (meta) meta.content = theme === 'dark' ? '#0e0e0e' : '#faf9f7';
-      }
-      btn.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        applyTheme(current === 'dark' ? 'light' : 'dark');
-      });
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
-      });
-    })();
-  </script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-  </script>
   <script>lucide.createIcons();</script>
-
-  <!-- Inietta header su blocchi pre nativi di Hugo -->
   <script>
     (function() {
-      // Trova tutti i pre nelle aree di contenuto che NON sono già dentro .code-block
-      var containers = document.querySelectorAll('.notes-body, .post-content');
-      containers.forEach(function(container) {
-
-        // Caso 1: .highlight > pre (Hugo con syntax highlighting)
+      document.querySelectorAll('.post-content').forEach(function(container) {
         container.querySelectorAll('.highlight').forEach(function(hl) {
           if (hl.closest('.code-block')) return;
-          var pre  = hl.querySelector('pre');
-          var code = hl.querySelector('code');
-          var lang = '';
-          if (code) {
-            var m = code.className.match(/language-(\w+)/);
-            if (m) lang = m[1];
-          }
-          wrapWithHeader(hl, code || pre, lang);
+          var code = hl.querySelector('code'), lang = '';
+          if (code) { var m = code.className.match(/language-(\w+)/); if (m) lang = m[1]; }
+          wrap(hl, code || hl.querySelector('pre'), lang);
         });
-
-        // Caso 2: pre senza .highlight sopra
         container.querySelectorAll('pre').forEach(function(pre) {
-          if (pre.closest('.code-block')) return;
-          if (pre.closest('.highlight')) return;
-          var code = pre.querySelector('code');
-          var lang = '';
-          if (code) {
-            var m = code.className.match(/language-(\w+)/);
-            if (m) lang = m[1];
-          }
-          wrapWithHeader(pre, code || pre, lang);
+          if (pre.closest('.code-block') || pre.closest('.highlight')) return;
+          var code = pre.querySelector('code'), lang = '';
+          if (code) { var m = code.className.match(/language-(\w+)/); if (m) lang = m[1]; }
+          wrap(pre, code || pre, lang);
         });
-
       });
-
-      function wrapWithHeader(el, codeEl, lang) {
-        var wrapper = document.createElement('div');
-        wrapper.className = 'code-block';
-
-        var header = document.createElement('div');
-        header.className = 'code-block-header';
-
-        var langSpan = document.createElement('span');
-        langSpan.className = 'code-block-lang';
-        langSpan.textContent = lang || 'code';
-
-        var copyBtn = document.createElement('button');
-        copyBtn.className = 'code-block-copy';
-        copyBtn.textContent = 'copia';
-        copyBtn.addEventListener('click', function() {
+      function wrap(el, codeEl, lang) {
+        var w = document.createElement('div'); w.className = 'code-block';
+        var h = document.createElement('div'); h.className = 'code-block-header';
+        var l = document.createElement('span'); l.className = 'code-block-lang'; l.textContent = lang || 'code';
+        var b = document.createElement('button'); b.className = 'code-block-copy'; b.textContent = 'copia';
+        b.addEventListener('click', function() {
           navigator.clipboard.writeText(codeEl.innerText).then(function() {
-            copyBtn.textContent = 'copiato';
-            setTimeout(function() { copyBtn.textContent = 'copia'; }, 1500);
+            b.textContent = 'copiato'; setTimeout(function() { b.textContent = 'copia'; }, 1500);
           });
         });
-
-        header.appendChild(langSpan);
-        header.appendChild(copyBtn);
-        el.parentNode.insertBefore(wrapper, el);
-        wrapper.appendChild(header);
-        wrapper.appendChild(el);
+        h.appendChild(l); h.appendChild(b);
+        el.parentNode.insertBefore(w, el); w.appendChild(h); w.appendChild(el);
       }
     })();
   </script>
-
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js'); });
+    }
+  </script>
 </body>
 </html>

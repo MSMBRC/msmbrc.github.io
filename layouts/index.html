@@ -1,61 +1,13 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
-{{ $paginator := .Paginate $posts }}
-<div class="post-feed">
-
-{{ range $paginator.Pages }}
-  <article class="post">
-    <div class="post-avatar">
-      <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" fill="var(--bg)"/>
-        <path fill="var(--text-primary)" d="M70 58.0107L69.999 58.0098L62.0166 65.9912L62.0176 65.9922L54.0352 73.9746L46.0527 65.9922L54.0342 58.0098L62.0166 50.0273L66.0078 54.0186L62.0176 50.0273L70 42.0449V58.0107ZM46.0518 34.0615L54.0342 42.0439L46.0518 50.0264L46.0527 50.0273L38.0703 58.0107L30.0869 50.0273L38.0703 42.0449L38.0693 42.0439L46.0508 34.0615L38.0693 26.0801H54.0342L46.0518 34.0615ZM62.0166 50.0264L54.0342 42.0439H70L62.0166 50.0264ZM54.0352 42.0439L46.0527 34.0615L54.0352 26.0791V42.0439Z"/>
-        </svg>
-    </div>
-    <div class="post-body">
-
-      <div class="post-header">
-        <div class="post-header-left">
-          <span class="post-author">{{ .Title }}</span>
-          <span class="post-handle">{{ $.Site.Params.handle }}</span>
-          <span class="post-dot">·</span>
-          <span class="post-date">{{ .Date.Format "2 Jan 2006" }}</span>
-        </div>
-      </div>
-
-      <div class="post-content">
-        {{ .Content }}
-      </div>
-
-    </div>
-  </article>
-  {{ end }}
-
-</div>
-
-<!-- Paginazione -->
-
-{{ if gt $paginator.TotalPages 1 }}
-<nav class="pagination">
-  {{ if $paginator.HasPrev }}
-    <a href="{{ $paginator.Prev.URL }}" class="prev-next">← Precedenti</a>
-  {{ else }}
-    <span class="prev-next disabled">← Precedenti</span>
-  {{ end }}
-
-  {{ range $paginator.Pagers }}
-    {{ if eq . $paginator }}
-      <span class="current">{{ .PageNumber }}</span>
-    {{ else }}
-      <a href="{{ .URL }}">{{ .PageNumber }}</a>
-    {{ end }}
-  {{ end }}
-
-  {{ if $paginator.HasNext }}
-    <a href="{{ $paginator.Next.URL }}" class="prev-next">Successivi →</a>
-  {{ else }}
-    <span class="prev-next disabled">Successivi →</span>
-  {{ end }}
-</nav>
+{{ $latest := index ($posts.ByDate.Reverse) 0 }}
+{{ if $latest }}
+<article class="post-single">
+  <div class="post-single-header">
+    <span class="post-single-title">{{ $latest.Title }}</span>
+    <span class="post-single-date">{{ $latest.Date.Format "2 Jan 2006" }}</span>
+  </div>
+  <div class="post-content">{{ $latest.Content }}</div>
+</article>
 {{ end }}
-
 {{ end }}

@@ -1,107 +1,87 @@
-<!-- ── PROFILE HEADER ──────────────────────────────────────── -->
-<div class="profile-header">
+{{ $isEn := eq .Site.Language.Lang "en" }}
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $latest := index ($posts.ByDate.Reverse) 0 }}
 
-  <div class="profile-banner">
-    <div class="profile-actions">
+<aside class="sidebar">
 
-      <!-- Language toggle -->
-      <button class="lang-toggle" id="lang-toggle" aria-label="Cambia lingua" title="Cambia lingua">
-        {{ if eq .Site.Language.Lang "en" }}<span class="lang-label">EN</span>{{ else }}<span class="lang-label">IT</span>{{ end }}
-      </button>
+  <div class="sidebar-controls">
 
-      <!-- Theme toggle -->
-      <button class="theme-toggle" id="theme-toggle" aria-label="Cambia tema" title="Cambia tema">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <div class="profile-info-avatar">
-    <div class="profile-avatar">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" fill="var(--bg)"/>
-        <path fill="var(--text-primary)" d="M70 58.0107L69.999 58.0098L62.0166 65.9912L62.0176 65.9922L54.0352 73.9746L46.0527 65.9922L54.0342 58.0098L62.0166 50.0273L66.0078 54.0186L62.0176 50.0273L70 42.0449V58.0107ZM46.0518 34.0615L54.0342 42.0439L46.0518 50.0264L46.0527 50.0273L38.0703 58.0107L30.0869 50.0273L38.0703 42.0449L38.0693 42.0439L46.0508 34.0615L38.0693 26.0801H54.0342L46.0518 34.0615ZM62.0166 50.0264L54.0342 42.0439H70L62.0166 50.0264ZM54.0352 42.0439L46.0527 34.0615L54.0352 26.0791V42.0439Z"/>
-      </svg>
-    </div>
-  </div>
-
-  <div class="profile-info">
-    <div class="profile-name"><h1>{{ .Site.Title }}</h1></div>
-    <div class="profile-handle">{{ .Site.Params.handle }}</div>
-    <div class="profile-bio">{{ .Site.Language.Params.bio | default .Site.Params.bio | safeHTML }}</div>
-    <!--<div class="profile-details">
-      {{ with .Site.Params.location }}
-      <span class="profile-detail-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        {{ . }}
-      </span>
-      {{ end }}
-      {{ with .Site.Params.email }}
-      <span class="profile-detail-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:{{ . }}">{{ if eq $.Site.Language.Lang "en" }}Contact me{{ else }}Scrivimi{{ end }}</a>
-      </span>
-      {{ end }}
-    </div>-->
-  </div>
-
-  <!-- Tabs -->
-  {{ $lang := .Site.Language.Lang }}
-  {{ $isEn := eq $lang "en" }}
-  {{ $prefix := "" }}{{ if $isEn }}{{ $prefix = "/en" }}{{ end }}
-
-  <div class="profile-tabs">
-    {{ if $isEn }}
-    <a href="{{ $prefix }}/" class="profile-tab{{ if .IsHome }} active{{ end }}">
-      <i data-lucide="HouseHeart"></i><span class="tit">Notes</span>
+    <a href="{{ if $latest }}{{ $latest.RelPermalink }}{{ else }}/{{ end }}" class="sidebar-avatar">
+      <img src="/assets/global/profilo.jpg" alt="MSMBRC">
     </a>
-    {{ else }}
-    <a href="{{ $prefix }}/" class="profile-tab{{ if .IsHome }} active{{ end }}">
-      <i data-lucide="HouseHeart"></i><span class="tit">Note</span>
+
+    <button class="sidebar-btn lang-toggle" id="lang-toggle" aria-label="Cambia lingua">
+      <span class="lang-label">{{ if $isEn }}EN{{ else }}IT{{ end }}</span>
+    </button>
+
+    <button class="sidebar-btn theme-toggle" id="theme-toggle" aria-label="Cambia tema">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+
+    <button class="sidebar-btn hamburger" id="hamburger" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+  </div>
+
+  <nav class="sidebar-posts" id="sidebar-posts">
+
+    <button class="sidebar-close" id="sidebar-close">✕</button>
+
+    {{ range $posts.ByDate.Reverse }}
+    <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
+      <span class="sidebar-post-title">{{ .Title }}</span>
+      <!--<span class="sidebar-post-date">{{ .Date.Format "2 Jan 2006" }}</span>-->
     </a>
     {{ end }}
 
-    {{ if $isEn }}
-    <a href="/en/about/" class="profile-tab{{ if in .RelPermalink "about" }} active{{ end }}">
-      <i data-lucide="Smile"></i><span class="tit">Me</span>
-    </a>
-    {{ else }}
-    <a href="/chi-sono/" class="profile-tab{{ if in .RelPermalink "chi-sono" }} active{{ end }}">
-      <i data-lucide="Smile"></i><span class="tit">Io</span>
-    </a>
-    {{ end }}
-  </div>
+  </nav>
 
-</div>
+</aside>
 
 <script>
 (function() {
+  // Theme
+  var themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function() {
+      var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      var meta = document.getElementById('meta-theme-color');
+      if (meta) meta.content = t === 'dark' ? '#0e0e0e' : '#faf9f7';
+    });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    });
+  }
+
+  // Lang
   var langBtn = document.getElementById('lang-toggle');
-  if (!langBtn) return;
-  langBtn.addEventListener('click', function() {
-    var path = window.location.pathname;
-    var isEn = path.startsWith('/en/') || path === '/en';
+  if (langBtn) {
+    langBtn.addEventListener('click', function() {
+      var path = window.location.pathname;
+      var isEn = path.startsWith('/en/') || path === '/en';
+      window.location.href = isEn ? (path.replace(/^\/en/, '') || '/') : ('/en' + (path === '/' ? '/' : path));
+    });
+  }
 
-    // Mappatura sezioni IT <-> EN
-    var itToEn = { 'chi-sono': 'about' };
-    var enToIt = { 'about': 'chi-sono' };
-
-    if (isEn) {
-      var newPath = path.replace(/^\/en/, '') || '/';
-      // Sostituisci sezione EN con equivalente IT
-      for (var enSec in enToIt) {
-        newPath = newPath.replace(new RegExp('^\\/' + enSec + '(\\/|$)'), '/' + enToIt[enSec] + '$1');
-      }
-      window.location.href = newPath;
-    } else {
-      var newPath = path;
-      // Sostituisci sezione IT con equivalente EN
-      for (var itSec in itToEn) {
-        newPath = newPath.replace(new RegExp('^\\/' + itSec + '(\\/|$)'), '/' + itToEn[itSec] + '$1');
-      }
-      window.location.href = '/en' + (newPath === '/' ? '/' : newPath);
-    }
-  });
+  // Hamburger
+  var hamburger = document.getElementById('hamburger');
+  var sidebarPosts = document.getElementById('sidebar-posts');
+  var closeBtn = document.getElementById('sidebar-close');
+  if (hamburger && sidebarPosts) {
+    hamburger.addEventListener('click', function() {
+      sidebarPosts.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    closeBtn && closeBtn.addEventListener('click', function() {
+      sidebarPosts.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
 })();
 </script>
