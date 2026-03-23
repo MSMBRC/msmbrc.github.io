@@ -20,7 +20,7 @@ defaultContentLanguageInSubdir = false
     weight       = 2
     contentDir   = "content/en"
     [languages.en.params]
-      bio       = "A Digital Notebook of a designer, gamer, reader and tech tinkerer"
+      bio       = "A digital notebook of a designer, gamer, reader and tech tinkerer"
       langLabel = "EN"
 
 # ── Parametri globali ──────────────────────────────────────────

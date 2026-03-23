@@ -52,9 +52,15 @@
   {{ $prefix := "" }}{{ if $isEn }}{{ $prefix = "/en" }}{{ end }}
 
   <div class="profile-tabs">
+    {{ if $isEn }}
     <a href="{{ $prefix }}/" class="profile-tab{{ if .IsHome }} active{{ end }}">
-      <i data-lucide="HouseHeart"></i><span class="tit">Posts</span>
+      <i data-lucide="HouseHeart"></i><span class="tit">Notes</span>
     </a>
+    {{ else }}
+    <a href="{{ $prefix }}/" class="profile-tab{{ if .IsHome }} active{{ end }}">
+      <i data-lucide="HouseHeart"></i><span class="tit">Note</span>
+    </a>
+    {{ end }}
 
     {{ if $isEn }}
     <a href="/en/about/" class="profile-tab{{ if in .RelPermalink "about" }} active{{ end }}">
