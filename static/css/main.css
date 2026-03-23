@@ -101,7 +101,7 @@ a { color: inherit; text-decoration: none; }
 }
 .sidebar-btn:hover { color: var(--text-primary); border-color: var(--text-tertiary); }
 .sidebar-btn svg { width: 15px; height: 15px; }
-.lang-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; }
+.lang-label { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; }
 
 [data-theme="dark"]  .icon-sun  { display: none; }
 [data-theme="dark"]  .icon-moon { display: block; }
