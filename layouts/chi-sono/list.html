@@ -119,7 +119,42 @@
     </div>
   </div>
 
-  
+  <!-- ── IN LETTURA ────────────────────────────────────────── -->
+  {{ with .Params.in_lettura }}
+  <div class="section-heading">{{ if eq $.Site.Language.Lang "en" }}Currently reading{{ else }}In lettura{{ end }}</div>
+  <div class="book-list inlettura" style="margin-bottom: 32px;">
+    {{ range . }}
+    <div class="book-item">
+      <span class="book-badge">{{ if eq $.Site.Language.Lang "en" }}Reading{{ else }}In lettura{{ end }}</span>
+      <div class="book-cover">
+        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="book-cover-placeholder"></div>{{ end }}
+      </div>
+      <div class="book-info">
+        <div class="book-title">{{ .titolo }}</div>
+        <div class="book-author">{{ .autore }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- ── STO GIOCANDO ──────────────────────────────────────── -->
+  {{ with .Params.sto_giocando }}
+  <div class="section-heading">{{ if eq $.Site.Language.Lang "en" }}Currently playing{{ else }}Sto giocando{{ end }}</div>
+  <div class="games-grid" style="margin-bottom: 32px;">
+    {{ range . }}
+    <div class="game-card">
+      <div class="game-cover">
+        {{ if .image }}<img src="{{ .image }}" alt="{{ .titolo }}" />{{ else }}<div class="game-cover-placeholder">🎮</div>{{ end }}
+        <span class="game-badge">{{ if eq $.Site.Language.Lang "en" }}Playing{{ else }}In corso{{ end }}</span>
+      </div>
+      <div class="game-info">
+        <div class="game-title">{{ .titolo }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
 
   <!-- ── CATEGORIE ATTIVE ──────────────────────────────────── 
   <div class="section-heading">{{ if eq .Site.Language.Lang "en" }}Tool{{ else }}Strumenti{{ end }}</div>

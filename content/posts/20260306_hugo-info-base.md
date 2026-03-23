@@ -1,9 +1,7 @@
 ---
 title: "Hugo — info base"
-date: 2026-01-20
-type: "blocco-appunti"
+date: 2026-03-06
 draft: false
-layout: "single"
 ---
 
 Hugo è un generatore di siti statici. Significa che alla fine ti sputa fuori file `.html` puri, niente database, niente server strano.

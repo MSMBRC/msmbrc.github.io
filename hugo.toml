@@ -11,7 +11,7 @@ defaultContentLanguageInSubdir = false
     languageName = "Italiano"
     weight       = 1
     [languages.it.params]
-      bio       = "Designer, videogiocatore, lettore e smanettone."
+      bio       = "Un blocco note di un designer, videogiocatore, lettore e smanettone."
       langLabel = "IT"
 
   [languages.en]
@@ -20,7 +20,7 @@ defaultContentLanguageInSubdir = false
     weight       = 2
     contentDir   = "content/en"
     [languages.en.params]
-      bio       = "Designer, gamer, reader and tech tinkerer."
+      bio       = "A Digital Notebook of a designer, gamer, reader and tech tinkerer"
       langLabel = "EN"
 
 # ── Parametri globali ──────────────────────────────────────────
