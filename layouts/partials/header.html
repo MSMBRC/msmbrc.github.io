@@ -27,8 +27,8 @@
 
   <nav class="sidebar-posts" id="sidebar-posts">
 
-    <button class="sidebar-close" id="sidebar-close">✕</button>
-
+    <button class="sidebar-close" id="sidebar-close" style="padding:16px;">✕</button>
+    <p class="titoletto">{{ if $isEn }}Notes{{ else }}Note{{ end }}</p>
     {{ range $posts.ByDate.Reverse }}
     <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
       <span class="sidebar-post-title">{{ .Title }}</span>
