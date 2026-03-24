@@ -67,5 +67,5 @@
       window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js'); });
     }
   </script>
-</body>
+<body{{ if .IsHome }} class="is-home"{{ end }}>
 </html>
