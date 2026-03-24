@@ -453,7 +453,7 @@ a { color: inherit; text-decoration: none; }
     font-size: 0.85rem;
   }
 
-  .hamburger { display: flex; margin-left: auto; }
+  .hamburger { display: none; margin-left: auto; }
 
   .sidebar-posts {
     display: none;
