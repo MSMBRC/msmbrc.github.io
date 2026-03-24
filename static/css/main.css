@@ -171,8 +171,8 @@ a { color: inherit; text-decoration: none; }
 
 /* ─── Main content ───────────────────────────────────────────── */
 .main-content {
-  margin-left: 274px;
-  width: calc(100% - 274px);
+  margin-left: 224px;
+  width: calc(100% - 224px);
   min-height: 100vh;
   /*margin: 0 auto;*/
 }
