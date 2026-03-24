@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
-{{ $latest := index ($posts.ByDate.Reverse) 0 }}
+<!--{{ $latest := index ($posts.ByDate.Reverse) 0 }}-->
+{{ $latest := .Site.GetPage "/posts/20260305_chisono" }}
 {{ if $latest }}
 <article class="post-single">
   <div class="post-single-header">

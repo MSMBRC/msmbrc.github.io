@@ -32,7 +32,7 @@
     {{ range $posts.ByDate.Reverse }}
     <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
       <span class="sidebar-post-title">{{ .Title }}</span>
-      <!--<span class="sidebar-post-date">{{ .Date.Format "2 Jan 2006" }}</span>-->
+      <span class="sidebar-post-date">{{ .Date.Format "2 Jan 2006" }}</span>
     </a>
     {{ end }}
 

@@ -1,0 +1,15 @@
+
+<!-- ── IN LETTURA ────────────────────────────────────────── -->
+  <div class="section-heading nopaddingtop">{{ if eq $.Site.Language.Lang "en" }}Currently reading{{ else }}In lettura{{ end }}</div>
+  <div class="book-list inlettura" style="margin-bottom: 32px;">
+    <div class="book-item">
+      <span class="book-badge">{{ if eq $.Site.Language.Lang "en" }}Reading{{ else }}In lettura{{ end }}</span>
+      <div class="book-cover">
+        <img src="https://www.sperling.it/content/uploads/2015/05/978882009217GRA.JPG" alt="" /><div class="book-cover-placeholder"></div>
+      </div>
+      <div class="book-info">
+        <div class="book-title">{{ if eq .Site.Language.Lang "en" }}The Dark Tower VII - The Dark Tower{{ else }}La Torre Nera VII - La Torre Nera{{ end }}</div>
+        <div class="book-author">Stephen King</div>
+      </div>
+    </div>
+  </div>

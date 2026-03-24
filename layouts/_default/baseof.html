@@ -23,6 +23,7 @@
       document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
     })();
   </script>
+  {{ if .Params.robots }}<meta name="robots" content="{{ .Params.robots }}">{{ end }}
 </head>
 <body>
   {{- partial "header.html" . -}}
