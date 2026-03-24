@@ -38,3 +38,6 @@ defaultContentLanguageInSubdir = false
 
 [pagination]
   pagerSize = 7
+
+[markup.goldmark.extensions]
+  taskList = true

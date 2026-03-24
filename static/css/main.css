@@ -127,7 +127,6 @@ a { color: inherit; text-decoration: none; }
   flex-direction: row;
   gap: 2px;
   padding: 6px 16px;
-  border-radius: var(--radius-sm);
   text-decoration: none;
   transition: background var(--transition);
   border-bottom: 1px solid var(--border);
@@ -852,4 +851,9 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-tertiary);
   font-family: var(--font-mono);
   margin-top: 2px;
+}
+
+.post-content ul:has(input[type="checkbox"]) {
+  list-style: none;
+  padding-left: 0;
 }
