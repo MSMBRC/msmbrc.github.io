@@ -28,13 +28,26 @@
   <nav class="sidebar-posts" id="sidebar-posts">
 
     <button class="sidebar-close" id="sidebar-close" style="padding:16px;">✕</button>
+    <p class="titoletto">{{ if $isEn }}Pinned{{ else }}Pinnate{{ end }}</p>
+    {{ $pinned := where $posts "Params.pinned" true }}
+    {{ $regular := where $posts "Params.pinned" "!=" true }}
+
+    {{ range $pinned.ByDate.Reverse }}
+    <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
+      <span class="sidebar-post-title">{{ .Title }} <i data-lucide="pin"></i></span>
+      <span class="sidebar-post-date">{{ .Date.Format "2 Jan 2006" }}</span>
+    </a>
+    {{ end }}
+
     <p class="titoletto">{{ if $isEn }}Notes{{ else }}Note{{ end }}</p>
-    {{ range $posts.ByDate.Reverse }}
+    {{ range $regular.ByDate.Reverse }}
     <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
       <span class="sidebar-post-title">{{ .Title }}</span>
       <span class="sidebar-post-date">{{ .Date.Format "2 Jan 2006" }}</span>
     </a>
     {{ end }}
+
+
 
   </nav>
 
