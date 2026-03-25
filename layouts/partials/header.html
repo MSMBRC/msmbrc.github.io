@@ -27,6 +27,9 @@
 
   </div>
 
+  <nav class="sidebar-posts" id="sidebar-posts">
+    
+
   <p class="introduzione" style="color:var(--text-secondary)">
     {{ if eq $.Site.Language.Lang "en" }}
       Hi, I'm a designer, video gamer, reader, and tech enthusiast, and this is my public digital notebook.
@@ -34,8 +37,6 @@
       Ciao, sono un designer, videogiocatore, lettore e smanettone e questo è il mio blocco appunti digitale pubblico.
     {{ end }}
   </p>
-
-  <nav class="sidebar-posts" id="sidebar-posts">
     <button class="sidebar-close" id="sidebar-close" style="padding:16px;">✕</button>
 
     {{ $pinned := where $posts "Params.pinned" true }}
