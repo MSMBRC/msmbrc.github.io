@@ -27,30 +27,37 @@
 
   </div>
 
-  <nav class="sidebar-posts" id="sidebar-posts">
+  <p class="introduzione" style="color:var(--text-secondary)">
+    {{ if eq $.Site.Language.Lang "en" }}
+      Hi, I'm a designer, video gamer, reader, and tech enthusiast, and this is my public digital notebook.
+    {{ else }}
+      Ciao, sono un designer, videogiocatore, lettore e smanettone e questo è il mio blocco appunti digitale pubblico.
+    {{ end }}
+  </p>
 
+  <nav class="sidebar-posts" id="sidebar-posts">
     <button class="sidebar-close" id="sidebar-close" style="padding:16px;">✕</button>
-    <p class="titoletto">{{ if $isEn }}Pinned{{ else }}Pinnate{{ end }}</p>
+
     {{ $pinned := where $posts "Params.pinned" true }}
     {{ $regular := where $posts "Params.pinned" "!=" true }}
 
+    {{ if $pinned }}
+    <p class="titoletto">{{ if $isEn }}Pinned{{ else }}Pinnate{{ end }}</p>
     {{ range $pinned.ByDate.Reverse }}
     <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
       <span class="sidebar-post-title">{{ .Title }} <i data-lucide="pin"></i></span>
-      <span class="sidebar-post-date">{{ .Date.Format "2 Jan 2006" }}</span>
+      <span class="sidebar-post-date" data-date="{{ .Date.Format "2006-01-02" }}"></span>
     </a>
+    {{ end }}
     {{ end }}
 
     <p class="titoletto">{{ if $isEn }}Notes{{ else }}Note{{ end }}</p>
     {{ range $regular.ByDate.Reverse }}
     <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
       <span class="sidebar-post-title">{{ .Title }}</span>
-      <span class="sidebar-post-date">{{ .Date.Format "2 Jan 2006" }}</span>
+      <span class="sidebar-post-date" data-date="{{ .Date.Format "2006-01-02" }}"></span>
     </a>
     {{ end }}
-
-
-
   </nav>
 
 </aside>
@@ -99,4 +106,17 @@
     });
   }
 })();
+document.querySelectorAll('.sidebar-post-date[data-date]').forEach(function(el) {
+  var date = new Date(el.getAttribute('data-date'));
+  var now = new Date();
+  var diff = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+  var label;
+  if (diff === 0) label = 'oggi';
+  else if (diff === 1) label = '1g';
+  else if (diff < 7) label = diff + 'g';
+  else if (diff < 30) label = Math.floor(diff / 7) + 's';
+  else if (diff < 365) label = Math.floor(diff / 30) + 'm';
+  else label = Math.floor(diff / 365) + 'a';
+  el.textContent = label;
+});
 </script>
