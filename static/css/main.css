@@ -256,7 +256,7 @@ p.introduzione {padding:16px 16px 0; font-size: 0.8rem; border-right: solid 1px 
 .post-content h2 { font-size: 1.1rem; }
 .post-content h3 { font-size: 0.95rem; color: var(--text-secondary); }
 .post-content ul, .post-content ol { padding-left: 20px; margin-bottom: 16px; }
-.post-content li { margin-bottom: 4px; color: var(--text-secondary)}
+.post-content li { margin-bottom: 4px;}
 .post-content img { max-width: 100%; border-radius: var(--radius-md); margin: 12px 0; display: block; }
 .post-content hr { border: none; border-top: 1px solid var(--border-subtle); margin: 24px 0; }
 .post-content blockquote {
