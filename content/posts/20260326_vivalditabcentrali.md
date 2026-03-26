@@ -6,12 +6,12 @@ draft: false
 
 Codice per posizionare le tabs del browser Vivaldi al centro della barra.
 
-Passo 1: abilita le modifiche CSS
+## Passo 1: abilita le modifiche CSS
 
 - Digita nella barra degli indirizzi: vivaldi://experiments
 - Spunta l'opzione "Allow CSS modifications"
 
-Passo 2: creare il file CSS
+## Passo 2: creare il file CSS
 
 Crea una cartella (es. VivaldiCSS) in un posto sicuro fuori dalla cartella di installazione di Vivaldi (che viene sovrascritta ad ogni aggiornamento), ad esempio in Documenti.
 Dentro la cartella crea un file di testo chiamato custom.css e incolla questo codice:
@@ -36,8 +36,7 @@ Dentro la cartella crea un file di testo chiamato custom.css e incolla questo co
   position: relative !important;
 }
 
-#tabs-container.top .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget,
-#tabs-container.bottom .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget {
+#tabs-container.top .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget, #tabs-container.bottom .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget {
   position: absolute!important;
   width:100px;
     right: 0!important;
@@ -63,13 +62,13 @@ Dentro la cartella crea un file di testo chiamato custom.css e incolla questo co
 }
 ```
 
-Passo 3: collega la cartella a Vivaldi
+## Passo 3: collega la cartella a Vivaldi
 
 - Vai in Impostazioni → Aspetto
 - Scorri fino alla sezione "Modifiche UI personalizzate"
 - Clicca su "Seleziona cartella" e scegli la cartella VivaldiCSS che hai creato
 
-Passo 4: riavvia Vivaldi
+## Passo 4: riavvia Vivaldi
 
 Chiudi e riapri il browser: le tab dovrebbero ora apparire centrate.
 

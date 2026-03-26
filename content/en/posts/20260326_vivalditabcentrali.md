@@ -6,12 +6,12 @@ draft: false
 
 Code to center the Vivaldi browser tabs on the toolbar.
 
-Step 1: Enable CSS modifications
+## Step 1: Enable CSS modifications
 
 - Type the following into the address bar: vivaldi://experiments
 - Check the “Allow CSS modifications” option
 
-Step 2: Create the CSS file
+## Step 2: Create the CSS file
 
 Create a folder (e.g., VivaldiCSS) in a safe location outside the Vivaldi installation folder (which is overwritten with every update), such as in Documents. Inside the folder, create a text file named custom.css and paste this code:
 
@@ -36,8 +36,7 @@ Create a folder (e.g., VivaldiCSS) in a safe location outside the Vivaldi instal
   position: relative !important;
 }
 
-#tabs-container.top .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget,
-#tabs-container.bottom .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget {
+#tabs-container.top .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget, #tabs-container.bottom .toolbar.toolbar-tabbar-after.toolbar-large.toolbar-droptarget {
   position: absolute!important;
   width:100px;
     right: 0!important;
@@ -63,13 +62,13 @@ Create a folder (e.g., VivaldiCSS) in a safe location outside the Vivaldi instal
 }
 ```
 
-Step 3: Link the folder to Vivaldi
+## Step 3: Link the folder to Vivaldi
 
 - Go to Settings → Appearance
 - Scroll down to the “Custom UI changes” section
 - Click “Select folder” and choose the VivaldiCSS folder you created
 
-Step 4: Restart Vivaldi
+## Step 4: Restart Vivaldi
 
 Close and reopen the browser: the tabs should now appear centered.
 
