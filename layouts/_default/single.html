@@ -2,7 +2,11 @@
 <article class="post-single">
   <div class="post-single-header">
     <span class="post-single-title">{{ .Title }}</span>
-    <span class="post-single-date">{{ .Date.Format "2 Jan 2006" }}</span>
+    <span class="post-single-date">
+      <span>{{ .Date.Format "2 Jan 2006" }}</span>
+      <span class="onlydesktop">|</span>
+      <span>{{ range .Params.tags }} #{{ . }} {{ end }}</span>
+    </span>
   </div>
   <div class="post-content">{{ .Content }}</div>
 </article>

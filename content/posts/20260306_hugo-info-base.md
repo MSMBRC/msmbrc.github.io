@@ -2,6 +2,7 @@
 title: "Info base su Hugo"
 date: 2026-03-06
 draft: false
+tags: ["guide"]
 ---
 
 Hugo è un generatore di siti statici. Significa che alla fine ti sputa fuori file `.html` puri, niente database, niente server strano.

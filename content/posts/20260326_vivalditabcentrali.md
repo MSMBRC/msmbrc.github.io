@@ -2,6 +2,7 @@
 title: "Vivaldi browser, tab centrali"
 date: 2026-03-26
 draft: false
+tags: ["guide"]
 ---
 
 Codice per posizionare le tabs del browser Vivaldi al centro della barra.

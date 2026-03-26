@@ -26,7 +26,7 @@
 }
 
 [data-theme="light"] {
-  --bg:            #faf9f7;
+  --bg:            #faf8f4;
   --bg-elevated:   #fdfbfa; /*f2f0ed*/
   --bg-hover:      #eceae6;
   --border:        #d5d5d5; /*drdad4*/
@@ -88,7 +88,6 @@ a { color: inherit; text-decoration: none; }
   gap: 8px;
   align-items: center;
   border-right: none;
-  border-right: 1px solid var(--border);
   justify-content: space-between;
 }
 
@@ -118,13 +117,13 @@ a { color: inherit; text-decoration: none; }
 .sidebar-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .two-buttons-right {display: flex; flex-direction: row; gap: 12px}
 .sidebar-btn {
-  background: none;
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 20px;
   width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  color: var(--text-tertiary);
+  color: var(--accent);
   transition: color var(--transition), border-color var(--transition);
   padding: 0; flex-shrink: 0;
 }
@@ -145,7 +144,6 @@ a { color: inherit; text-decoration: none; }
   overflow-y: auto;
   padding: 24px 0 20px 0;
   scrollbar-width: none;
-  border-right: 1px solid var(--border);
 }
 .sidebar-posts::-webkit-scrollbar { display: none; }
 
@@ -243,7 +241,7 @@ a { color: inherit; text-decoration: none; }
 .post-single-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--accent);
   letter-spacing: -0.03em;
 }
 .post-single-date {
@@ -253,6 +251,8 @@ a { color: inherit; text-decoration: none; }
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+.onlydesktop {display:inline-block;}
 
 /* ─── Contenuto post ─────────────────────────────────────────── */
 .post-content {
@@ -888,6 +888,11 @@ p.introduzione {padding:0px 16px 24px; font-size: 0.9rem; border-right: solid 1p
 
 /* ─── Mobile ─────────────────────────────────────────────────── */
   @media (max-width: 768px) {
+
+  .onlydesktop {display:none}
+
+  .post-single-header {flex-direction: column; gap: 0;}
+  .post-single-date {justify-content: space-between; display: flex; width: 100%;}
 
   p.introduzione {display:inline-block;}
 

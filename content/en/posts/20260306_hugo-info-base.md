@@ -2,6 +2,7 @@
 title: "Base info about Hugo"
 date: 2026-03-06
 draft: false
+tags: ["guide"]
 ---
 
 Hugo is a static site generator. That means it spits out pure `.html` files — no database, no weird server.

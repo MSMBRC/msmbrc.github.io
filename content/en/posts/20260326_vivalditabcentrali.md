@@ -2,6 +2,7 @@
 title: "Vivaldi browser, central tabs"
 date: 2026-03-26
 draft: false
+tags: ["guide"]
 ---
 
 Code to center the Vivaldi browser tabs on the toolbar.
