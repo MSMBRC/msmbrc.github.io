@@ -1,5 +1,6 @@
 {{ $isEn := eq .Site.Language.Lang "en" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $posts = where $posts "Params.hidden" "!=" true }}
 {{ $latest := index ($posts.ByDate.Reverse) 0 }}
 
 <aside class="sidebar">
@@ -111,13 +112,14 @@ document.querySelectorAll('.sidebar-post-date[data-date]').forEach(function(el) 
   var date = new Date(el.getAttribute('data-date'));
   var now = new Date();
   var diff = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+  var isEn = document.documentElement.lang === 'en';
   var label;
-  if (diff === 0) label = 'oggi';
-  else if (diff === 1) label = '1g';
-  else if (diff < 7) label = diff + 'g';
-  else if (diff < 30) label = Math.floor(diff / 7) + 's';
-  else if (diff < 365) label = Math.floor(diff / 30) + 'm';
-  else label = Math.floor(diff / 365) + 'a';
+  if (diff === 0)       label = isEn ? 'today'  : 'oggi';
+  else if (diff === 1)  label = isEn ? '1d'      : '1g';
+  else if (diff < 7)    label = diff + (isEn ? 'd' : 'g');
+  else if (diff < 30)   label = Math.floor(diff / 7)  + (isEn ? 'w' : 's');
+  else if (diff < 365)  label = Math.floor(diff / 30) + 'm';
+  else                  label = Math.floor(diff / 365) + (isEn ? 'y' : 'a');
   el.textContent = label;
 });
 </script>

@@ -1,5 +1,5 @@
 ---
-title: "Hugo — info base"
+title: "Base info about Hugo"
 date: 2026-03-06
 draft: false
 ---

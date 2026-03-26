@@ -63,12 +63,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .titoletto {
-  padding: 0px 16px 8px;
+  padding: 0px 0px 4px;
   font-size: 0.65rem;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--accent);
   border-bottom: solid 1px var(--border);
+  margin: 0 16px;
 }
 
 .sidebar-controls {
@@ -239,7 +240,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-primary);
 }
 .post-content p { margin-bottom: 16px;}
-p.introduzione {padding:0px 16px 16px; font-size: 0.9rem; border-right: solid 1px var(--border); display:none;}
+p.introduzione {padding:0px 16px 24px; font-size: 0.9rem; border-right: solid 1px var(--border); display:none;}
 .post-content p:last-child { margin-bottom: 0; }
 .post-content strong { font-weight: 700; }
 .post-content em { font-style: italic; }
