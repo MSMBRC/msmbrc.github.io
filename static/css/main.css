@@ -7,7 +7,7 @@
 /* ─── Variables ──────────────────────────────────────────────── */
 :root {
   --bg:            #171615; /*0e0e0e*/
-  --bg-elevated:   #171717;
+  --bg-elevated:   #1e1d1c; /*171717*/
   --bg-hover:      #1c1c1c;
   --border:        #323232; /*222222*/
   --border-subtle: #1a1a1a;
@@ -15,7 +15,7 @@
   --text-secondary:#888888;
   --text-tertiary: #555555;
   --text-accent:   #ffffff;
-  --accent:        #ff5370;  /*d6b81f*/
+  --accent:        #008837;  /*d6b81f*/ /*ff5370*/
   --font-sans:     'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono:     'Inter', ui-monospace, monospace;
   --content-width: 720px;
@@ -27,7 +27,7 @@
 
 [data-theme="light"] {
   --bg:            #faf9f7;
-  --bg-elevated:   #f2f0ed;
+  --bg-elevated:   #fdfbfa; /*f2f0ed*/
   --bg-hover:      #eceae6;
   --border:        #d5d5d5; /*drdad4*/
   --border-subtle: #e8e5e0;
@@ -35,7 +35,7 @@
   --text-secondary:#666666;
   --text-tertiary: #999999;
   --text-accent:   #000000;
-  --accent:        #ff5370;
+  --accent:        #008837;
 }
 
 /* ─── Base ───────────────────────────────────────────────────── */
@@ -67,6 +67,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   z-index: 200;
+  background: var(--bg-elevated);
 }
 
 .titoletto {
@@ -209,6 +210,20 @@ a { color: inherit; text-decoration: none; }
   min-height: 100vh;
   /*margin: 0 auto;*/
 }
+.is-home .main-content {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.is-home .main-content .post-single-header {
+  display: block;
+  color: var(--text-secondary);
+}
+.is-home .main-content .post-single-header span {
+  color: var(--text-secondary);
+}
+
 
 /* ─── Post singolo ───────────────────────────────────────────── */
 .post-single {
@@ -765,7 +780,7 @@ p.introduzione {padding:0px 16px 24px; font-size: 0.9rem; border-right: solid 1p
 .games-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 8px;
   margin-bottom: 40px;
 }
 .game-card {
