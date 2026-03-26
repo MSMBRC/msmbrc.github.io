@@ -8,12 +8,18 @@
   <div class="sidebar-controls">
 
     <a href="{{ "/" | relLangURL }}" class="sidebar-avatar">
-      <img src="/assets/global/profilo.jpg" alt="MSMBRC">
+
+    <svg class="profilo-svg" width="36" height="36" viewBox="0 0 105 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" fill="non"/>
+      <path d="M70 58.0107L69.999 58.0098L62.0166 65.9912L62.0176 65.9922L54.0352 73.9746L46.0527 65.9922L54.0342 58.0098L62.0166 50.0273L66.0078 54.0186L62.0176 50.0273L70 42.0449V58.0107ZM46.0518 34.0615L54.0342 42.0439L46.0518 50.0264L46.0527 50.0273L38.0703 58.0107L30.0869 50.0273L38.0703 42.0449L38.0693 42.0439L46.0508 34.0615L38.0693 26.0801H54.0342L46.0518 34.0615ZM62.0166 50.0264L54.0342 42.0439H70L62.0166 50.0264ZM54.0352 42.0439L46.0527 34.0615L54.0352 26.0791V42.0439Z">
+      </svg>
+      <!--<img src="/assets/global/profilo.svg" alt="MSMBRC">-->
     </a>
+
 
     <div class="two-buttons-right">
       <button class="sidebar-btn lang-toggle" id="lang-toggle" aria-label="Cambia lingua">
-        <span class="lang-label">{{ if $isEn }}🇬🇧{{ else }}🇮🇹{{ end }}</span>
+        <span class="lang-label">{{ if $isEn }}EN{{ else }}IT{{ end }}</span>
       </button>
 
       <button class="sidebar-btn theme-toggle" id="theme-toggle" aria-label="Cambia tema">
