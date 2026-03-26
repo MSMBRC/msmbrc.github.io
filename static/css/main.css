@@ -6,7 +6,7 @@
 :root {
   --bg:            #171615; /*0e0e0e*/
   --bg-elevated:   #1e1d1c; /*171717*/
-  --bg-hover:      #1c1c1c;
+  --bg-hover:      #1a1a1a;
   --border:        #323232; /*222222*/
   --border-subtle: #1a1a1a;
   --text-primary:  #e8e8e8;
@@ -204,7 +204,7 @@ a { color: inherit; text-decoration: none; }
   border-bottom: solid 1px var(--border);
 }
 .sidebar-post-item:hover { background: var(--bg-hover); }
-.sidebar-post-item.active { background: var(--bg-elevated);
+.sidebar-post-item.active { background: var(--bg);
   -webkit-box-shadow: inset 8px 0px 0px -4px var(--accent); 
   box-shadow: inset 8px 0px 0px -4px var(--accent);
 }
@@ -997,7 +997,6 @@ p.introduzione {padding:0px 16px 24px; font-size: 0.9rem; border-right: solid 1p
     display: none;
     position: fixed; inset: 0;
     width: 100%; height: 100%;
-    background: var(--bg);
     z-index: 300;
     padding: 20px 24px 40px;
     overflow-y: auto;
