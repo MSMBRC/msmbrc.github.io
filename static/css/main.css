@@ -9,7 +9,7 @@
   --bg:            #0e0e0e;
   --bg-elevated:   #171717;
   --bg-hover:      #1c1c1c;
-  --border:        #222222;
+  --border:        #464646; /*222222*/
   --border-subtle: #1a1a1a;
   --text-primary:  #e8e8e8;
   --text-secondary:#888888;
@@ -29,7 +29,7 @@
   --bg:            #faf9f7;
   --bg-elevated:   #f2f0ed;
   --bg-hover:      #eceae6;
-  --border:        #dedad4;
+  --border:        #b8b8b8; /*drdad4*/
   --border-subtle: #e8e5e0;
   --text-primary:  #1a1a1a;
   --text-secondary:#666666;
@@ -75,7 +75,6 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   font-weight: 700;
   color: var(--accent);
-  border-bottom: solid 1px var(--border);
   margin: 0 16px;
 }
 
