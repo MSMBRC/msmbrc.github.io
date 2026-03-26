@@ -4,16 +4,16 @@
 {{ $latest := index ($posts.ByDate.Reverse) 0 }}
 
 <aside class="sidebar">
-
+  <div class="sidebar-cover"></div>
   <div class="sidebar-controls">
 
     <a href="{{ "/" | relLangURL }}" class="sidebar-avatar">
 
-    <svg class="profilo-svg" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!--<svg class="profilo-svg" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="36" height="36" fill="non"/>
       <path d="M70 58.0107L69.999 58.0098L62.0166 65.9912L62.0176 65.9922L54.0352 73.9746L46.0527 65.9922L54.0342 58.0098L62.0166 50.0273L66.0078 54.0186L62.0176 50.0273L70 42.0449V58.0107ZM46.0518 34.0615L54.0342 42.0439L46.0518 50.0264L46.0527 50.0273L38.0703 58.0107L30.0869 50.0273L38.0703 42.0449L38.0693 42.0439L46.0508 34.0615L38.0693 26.0801H54.0342L46.0518 34.0615ZM62.0166 50.0264L54.0342 42.0439H70L62.0166 50.0264ZM54.0352 42.0439L46.0527 34.0615L54.0352 26.0791V42.0439Z">
-      </svg>
-      <!--<img src="/assets/global/profilo.svg" alt="MSMBRC">-->
+      </svg>-->
+      <img src="/assets/global/profilo.jpg" alt="MSMBRC">
     </a>
 
 
@@ -46,24 +46,40 @@
   </p>
     <button class="sidebar-close" id="sidebar-close" style="padding:16px;">✕</button>
 
+    <div class="sidebar-content-search"><input class="sidebar-search" id="sidebar-search" placeholder="{{ if $isEn }}Search tag{{ else }}Cerca tag{{ end }}" autocomplete="off" oninput="filterSidebar(this.value)"></div>
+
     {{ $pinned := where $posts "Params.pinned" true }}
     {{ $regular := where $posts "Params.pinned" "!=" true }}
 
     {{ if $pinned }}
-    <p class="titoletto">{{ if $isEn }}Pinned{{ else }}Pinnate{{ end }}</p>
+    <p class="titoletto" id="titoletto-pinned">{{ if $isEn }}Pinned{{ else }}Pinnate{{ end }}</p>
     {{ range $pinned.ByDate.Reverse }}
-    <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
-      <span class="sidebar-post-title">{{ .Title }} <i data-lucide="pin"></i></span>
-      <span class="sidebar-post-date" data-date="{{ .Date.Format "2006-01-02" }}"></span>
+   <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}" data-tags="{{ delimit .Params.tags " " }}">
+      <div class="title-tag-date">
+        <span class="sidebar-post-title">{{ .Title }} <i data-lucide="pin"></i></span>
+        <div class="right">
+          <span class="sidebar-post-date">{{ range .Params.tags }} #{{ . }} {{ end }}</span>
+          <span class="sidebar-post-date onlymobile">|</span>
+          <span class="sidebar-post-date" data-date="{{ .Date.Format "2006-01-02" }}"></span>
+        </div>
+      </div>
+      <span class="sidebar-post-preview">{{ .Plain | truncate 60 }}</span>
     </a>
     {{ end }}
     {{ end }}
 
     <p class="titoletto">{{ if $isEn }}Notes{{ else }}Note{{ end }}</p>
     {{ range $regular.ByDate.Reverse }}
-    <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
-      <span class="sidebar-post-title">{{ .Title }}</span>
-      <span class="sidebar-post-date" data-date="{{ .Date.Format "2006-01-02" }}"></span>
+    <a href="{{ .RelPermalink }}" class="sidebar-post-item{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}" data-tags="{{ delimit .Params.tags " " }}">
+      <div class="title-tag-date">
+        <span class="sidebar-post-title">{{ .Title }}</span>
+        <div class="right">
+          <span class="sidebar-post-date">{{ range .Params.tags }} #{{ . }} {{ end }}</span>
+          <span class="sidebar-post-date onlymobile">|</span>
+          <span class="sidebar-post-date" data-date="{{ .Date.Format "2006-01-02" }}"></span>
+        </div>
+      </div>
+      <span class="sidebar-post-preview">{{ .Plain | truncate 60 }}</span>
     </a>
     {{ end }}
   </nav>
@@ -128,4 +144,29 @@ document.querySelectorAll('.sidebar-post-date[data-date]').forEach(function(el) 
   else                  label = Math.floor(diff / 365) + (isEn ? 'y' : 'a');
   el.textContent = label;
 });
+function filterSidebar(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.sidebar-post-item').forEach(function(item) {
+    var tags = (item.getAttribute('data-tags') || '').toLowerCase();
+    item.style.display = !q || tags.includes(q) ? '' : 'none';
+  });
+}
+function filterSidebar(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.sidebar-post-item').forEach(function(item) {
+    var tags = (item.getAttribute('data-tags') || '').toLowerCase();
+    item.style.display = !q || tags.includes(q) ? '' : 'none';
+  });
+  // Nascondi titoletto pinned se nessun pinnato è visibile
+  var pinnedLabel = document.getElementById('titoletto-pinned');
+  if (pinnedLabel) {
+    var pinnedVisible = false;
+    var el = pinnedLabel.nextElementSibling;
+    while (el && el.classList.contains('sidebar-post-item')) {
+      if (el.style.display !== 'none') pinnedVisible = true;
+      el = el.nextElementSibling;
+    }
+    pinnedLabel.style.display = pinnedVisible ? '' : 'none';
+  }
+}
 </script>
