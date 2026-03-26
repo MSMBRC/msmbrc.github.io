@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 9.4 – Shopping
-
 ## Argomenti
 1. Zero e First Conditional – ripasso
 2. Second Conditional

@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 8.3 – Top Brands
-
 ## Argomenti
 1. Presente Passivo
 2. Passato Passivo

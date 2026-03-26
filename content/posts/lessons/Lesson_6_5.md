@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 6.5 – A Moment of History
-
 ## Argomenti
 1. Past Continuous
 2. Past Continuous + Past Simple

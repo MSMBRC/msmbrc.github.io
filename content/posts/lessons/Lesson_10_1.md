@@ -4,7 +4,6 @@ date: 2026-01-15
 draft: false
 hidden: true
 ---
-# Lesson 10.1 – Making History
 
 ## Argomenti
 1. Past Perfect Simple

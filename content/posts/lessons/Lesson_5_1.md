@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 5.1 – Celebrity Island
-
 ## Argomenti
 1. Present Continuous
 2. Adverbs of Manner

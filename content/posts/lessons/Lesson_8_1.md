@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 8.1 – Home Cinema
-
 ## Argomenti
 1. Present Perfect con "Since" e "For"
 2. Present Perfect con "Already" e "Yet"

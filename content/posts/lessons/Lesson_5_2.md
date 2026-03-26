@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 5.2 – Fashion Victims
-
 ## Argomenti
 1. Present Simple vs Present Continuous
 2. Vocabulary: Clothes

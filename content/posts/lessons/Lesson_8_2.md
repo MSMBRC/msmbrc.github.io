@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 8.2 – News
-
 ## Argomenti
 1. Present Perfect con "Just"
 2. Dare notizie con il Present Perfect

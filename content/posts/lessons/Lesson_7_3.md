@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 7.3 – Have You Ever?
-
 ## Argomenti
 1. Present Perfect per le esperienze
 2. Present Perfect + Past Simple

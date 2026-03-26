@@ -4,7 +4,6 @@ date: 2026-01-15
 draft: false
 hidden: true
 ---
-# Lesson 10.5 – Language
 
 ## Argomenti
 1. Ripasso dei Condizionali (Zero, 1st, 2nd)

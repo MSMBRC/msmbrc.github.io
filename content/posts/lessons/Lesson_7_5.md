@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 7.5 – Venues
-
 ## Argomenti
 1. Quantifiers – ripasso completo
 2. Too / Too much / Too many

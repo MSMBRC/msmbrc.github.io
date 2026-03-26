@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 5.5 – Famous Lives
-
 ## Argomenti
 1. Past Simple del verbo "to be"
 2. There was / There were

@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 6.1 – Better Communication
-
 ## Argomenti
 1. Comparativi
 2. Much / A Bit / As…As

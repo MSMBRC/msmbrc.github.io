@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 6.3 – Friday Feeling
-
 ## Argomenti
 1. Future Simple (decisioni spontanee)
 2. Suggerire attività

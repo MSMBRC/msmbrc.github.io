@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 9.5 – An Ideal Holiday
-
 ## Argomenti
 1. Ripasso delle 3 forme di futuro
 2. Fare piani: suggerimenti e richieste educate

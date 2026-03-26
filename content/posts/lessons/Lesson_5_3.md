@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 5.3 – Future Plans
-
 ## Argomenti
 1. Present Continuous per il futuro
 2. Present Simple per gli orari (Timetables)

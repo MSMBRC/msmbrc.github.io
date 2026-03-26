@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 9.1 – Architecture
-
 ## Argomenti
 Passivo in tutti i tempi principali
 

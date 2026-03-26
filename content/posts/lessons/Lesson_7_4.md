@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 7.4 – The Great Train Robbery
-
 ## Argomenti
 1. Past Simple – domande aperte e chiuse
 2. Object Questions vs Subject Questions

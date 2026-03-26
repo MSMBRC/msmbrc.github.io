@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 9.2 – My Childhood
-
 ## Argomenti
 1. Phrasal Verbs per le relazioni
 2. "Used to" per il passato

@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 6.2 – Transport
-
 ## Argomenti
 1. Superlativi
 2. Mezzi di trasporto e preposizioni "by" / "on"

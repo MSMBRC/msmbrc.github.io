@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 6.4 – A Journey
-
 ## Argomenti
 1. Past Simple (regolare e irregolare)
 

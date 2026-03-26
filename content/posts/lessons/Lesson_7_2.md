@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 7.2 – Health Dangers
-
 ## Argomenti
 1. Verbi modali
 2. Dare consigli

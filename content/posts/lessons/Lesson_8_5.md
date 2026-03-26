@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 8.5 – Television
-
 ## Argomenti
 1. Semi-modali
 2. Dare opinioni

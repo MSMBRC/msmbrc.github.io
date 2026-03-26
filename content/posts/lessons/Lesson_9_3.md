@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 9.3 – Change
-
 ## Argomenti
 1. Phrasal Verbs legati al progresso
 2. Zero Conditional

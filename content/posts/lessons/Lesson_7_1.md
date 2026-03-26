@@ -5,8 +5,6 @@ draft: false
 hidden: true
 ---
 
-# Lesson 7.1 – Shopping for Presents
-
 ## Argomenti
 1. Anticipating (non vedere l'ora di)
 2. "Going to" per intenzioni e previsioni
