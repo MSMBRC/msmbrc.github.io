@@ -80,7 +80,7 @@
       document.documentElement.setAttribute('data-theme', t);
       localStorage.setItem('theme', t);
       var meta = document.getElementById('meta-theme-color');
-      if (meta) meta.content = t === 'dark' ? '#0e0e0e' : '#faf9f7';
+      if (meta) meta.content = t === 'dark' ? '#ff5370' : '#ff5370';
     });
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
       if (!localStorage.getItem('theme')) {
