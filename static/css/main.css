@@ -108,8 +108,6 @@ a { color: inherit; text-decoration: none; }
   margin: 0 16px;
 }
 
-.is-home .sidebar-controls {margin-top: -32px;}
-
 .sidebar-controls {
   width: 100%;
   height: auto;
@@ -975,7 +973,7 @@ p.introduzione {padding:0px 16px 24px; font-size: 0.9rem; border-right: solid 1p
     top: 0; left: 0; right: 0;
     height: auto; width: 100%;
     flex-direction: column; align-items: center;
-    background: var(--bg);
+    background: var(--bg-elevated);
   }
 
   .sidebar-controls {
