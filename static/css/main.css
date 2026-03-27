@@ -201,7 +201,6 @@ a { color: inherit; text-decoration: none; }
   justify-content: space-between;
   -webkit-box-shadow: inset 8px 0px 0px -8px var(--accent); 
   box-shadow: inset 8px 0px 0px -8px var(--accent);
-  border-bottom: solid 1px var(--border);
 }
 .sidebar-post-item:hover { background: var(--bg-hover); }
 .sidebar-post-item.active { background: var(--bg-elevated);
@@ -993,7 +992,7 @@ p.introduzione {padding:0px 16px 24px; font-size: 0.9rem; border-right: solid 1p
   }
   
   .sidebar-post-item {
-    padding: 24px 16px;
+    padding: 16px 16px;
   }
   .sidebar-post-title {
     font-size: 0.85rem;
