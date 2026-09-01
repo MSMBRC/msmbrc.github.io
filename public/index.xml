@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Guybrush in watercolor</title>
+				<link>http://localhost:1313/posts/202608029_guy2/</link>
+				<pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/202608029_guy2/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/uploads/20260829.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Guybrush colored with watercolor, using a no-blending technique. Room for improvement, but it’s okay.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>First shapes of my mighty pirate</title>
 				<link>http://localhost:1313/posts/20260803_guy/</link>
@@ -28,13 +35,6 @@
 				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/uploads/20260729.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Jim’s finished. The more I look at it the more flaws I see, but it doesn’t matter — it’s already time to think about the next drawing: the mighty pirate.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title>Guybrush</title>
-				<link>http://localhost:1313/posts/20200721_guybrush/</link>
-				<pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/posts/20200721_guybrush/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/uploads/20260721.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Back again — and I&amp;rsquo;ve already broken my promise to draw more during the week. Here&amp;rsquo;s a quick sketch of how Guybrush from Monkey Island might look, the one I want to tackle after my Jim Carrey. The tricky part will be that I have no real reference photo to copy the features and shading from.&lt;/p&gt;</description>
-			</item>
-			<item>
 				<title>Fat people &amp; hands</title>
 				<link>http://localhost:1313/posts/20200707_fatpeopleandhands/</link>
 				<pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
@@ -47,13 +47,6 @@
 				<pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/posts/20200706_progressonmyjimcarrey/</guid>
 				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/uploads/20260706.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Second class. I reworked the Jim Carrey — fixing the too-close eyes and the too-narrow lower face — then finally started shading, building from a light base up to darker layers. I&amp;rsquo;ll probably finish it next class, but that&amp;rsquo;s at least two frustrating weeks away.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>Drawing with Guybrush Threepwood</title>
-				<link>http://localhost:1313/posts/20200704_drawingwithguybrushthreepwood/</link>
-				<pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/posts/20200704_drawingwithguybrushthreepwood/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/uploads/20260704.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m realizing I need a clear subject to feel motivated. My next real project will be Guybrush Threepwood, a character from a &amp;rsquo;90s pirate adventure game with a touch of voodoo. So while I finish the Jim Carrey, I&amp;rsquo;ll spend some sessions studying pirate clothing and weird voodoo items.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>What a grind</title>

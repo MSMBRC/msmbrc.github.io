@@ -1,7 +1,7 @@
 ---
 title: "Drawing with Guybrush Threepwood"
 date: 2026-07-04
-draft: false
+draft: true
 ---
 
 ![](/uploads/20260704.webp)
