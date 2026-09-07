@@ -15,6 +15,13 @@
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Guybrush in watercolor</title>
+				<link>http://localhost:1313/posts/202600907_circe/</link>
+				<pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/202600907_circe/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/uploads/20260907.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Work in progress of Circe the Sorceress from the &lt;em&gt;Odyssey&lt;/em&gt;, inspired by a drawing by Paolo Barbieri&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Guybrush in watercolor</title>
 				<link>http://localhost:1313/posts/202608029_guy2/</link>
 				<pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/posts/202608029_guy2/</guid>
